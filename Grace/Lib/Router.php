@@ -35,7 +35,7 @@ class Router
             'method_action'        => '',
             'method_action_ext'    => '',
             'ispost'        => false,
-            'ActionPrefix'  => C('controller_method_prefix'),
+            'ActionPrefix'      => C('controller_method_prefix'),
         ];
     }
 

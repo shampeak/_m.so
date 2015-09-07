@@ -13,22 +13,40 @@ class Application {
     private function __clone(){}
 
     public static function run($conf){
+          C($conf);
+          spl_autoload_register(array('Application', 'autoload'));              //psr-0
+          Bootstrap::init();                    //初期执行单位
 
-            spl_autoload_register(array('Application', 'autoload'));              //psr-0
+          /*
+           * 路由执行
+           * G(C()) //能获得完整准确的结果
+           * request 完成能输出完整的结果
+           */
+          Router::getInstance()->router();           //进行路由方面的执行
+
+
+
+
           //config
-          ConfigManager::Load($conf);
+          //ConfigManager::Load($conf);
           //D(ConfigManager::get('mysql'));
           //D(ConfigManager::get('Rbacdb'));
           //D(ConfigManager::get('User'));
           //D(ConfigManager::get('modules'));
-//          D(ConfigManager::get('Router'));
-
-
-          Router::getInstance()->load();
-
+//        D(ConfigManager::get('Router'));
+//        Router::getInstance()->load();
+          //$router = Router::getInstance()->getrouter();           //获得router
           //OK
 
 
+
+          //这里准备好
+//          $router
+//          $config
+//          $_REQUEST
+            $app = $controller;
+
+          Router::getInstance()->start($app);           //进行路由方面的执行
 
           exit;
 
@@ -129,7 +147,6 @@ exit;
         //标准动作扩展 insert update delete select json
         //_se[post]  _cg [change]    _de [delete]    json[jsonout]   vf[view flit] 显示筛选
         call_user_func(array($controller,$method),$params);
-
     }
 
 
@@ -163,8 +180,6 @@ exit;
         return true;
     }
 
-
-
       /**
       * 自动加载函数
       * @param string $class 类名
@@ -173,21 +188,6 @@ exit;
             includeIfExist(GRACEROOT.'Lib/'.$class.'.php');
       }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
