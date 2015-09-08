@@ -17,17 +17,42 @@ class ConfigManager
     private static $_app                = null;
     private static $_AppDefaultConfig   = null;
 
-
-    public static function Load($conf)
+    public static function Load($entrance)
     {
-        self::$_AppDefaultConfig = static::AppDefaultConfig();
-        self::$_entrance = $conf;
+        //default
+        $conf['app_defaultConfig'] = self::AppDefaultConfig();
 
-        $conf['CONF_FILE'] = $conf['CONF_FILE']?:'Conf.php';
-        self::$_app = array_merge(G($conf['APP_PATH'].$conf['CONF_FILE']),self::$_entrance);      //入口设定覆盖文件设定
+        //入口配置
+        $conf['ent'] = $entrance;
 
-        //写入C
-        C(array_merge(self::$_AppDefaultConfig,self::$_app));
+        //获取环境参数
+        $conf['env'] = Environment::getInstance()->getenv();
+
+        //获取app 配置
+        $file = $conf['ent']['CONF_FILE'] = $conf['ent']['CONF_FILE']?:'Conf.php';
+        $conf['app'] = G($conf['ent']['APP_PATH'].$file);
+
+        //所有配置的模块列表
+        $modulelist = $conf['ent']['modulelist']?:$conf['app']['modulelist'];
+        $modulelist = is_array($modulelist)?$modulelist:[];
+        $conf['modulelist'] = array_keys($modulelist);
+
+        //获取module配置
+        $module = Router::getmodule();
+
+
+
+        //写入所有配置
+        C($conf);
+
+//        self::$_AppDefaultConfig = static::AppDefaultConfig();
+//        self::$_entrance = $conf;
+//
+//        $conf['CONF_FILE'] = $conf['CONF_FILE']?:'Conf.php';
+//        self::$_app = array_merge(G($conf['APP_PATH'].$conf['CONF_FILE']),self::$_entrance);      //入口设定覆盖文件设定
+//
+//        //写入C
+//        C(array_merge(self::$_AppDefaultConfig,self::$_app));
     }
 
 
@@ -64,10 +89,10 @@ class ConfigManager
             'default_timezone'  => 'PRC',
             'charset'           => 'utf-8',
 
-            'error_page_404'    => C('APP_PATH').'error/error_404.php',
-            'error_page_500'    => C('APP_PATH').'error/error_500.php',
-            'error_page_msg'     => C('APP_PATH').'error/error_msg.php',
-            'message_page_view' => C('APP_PATH').'error/error_view.php',
+            'error_page_404'    => 'error/error_404.php',
+            'error_page_500'    => 'error/error_500.php',
+            'error_page_msg'     => 'error/error_msg.php',
+            'message_page_view' => 'error/error_view.php',
 
             //相对路径
             'controller_folder' => 'Controller/',
@@ -79,7 +104,7 @@ class ConfigManager
 
             'default_controller'        => 'home',
             'default_controller_method' => 'index',
-            'controller_method_prefix'  => 'do',
+            'default_controller_method_prefix'  => 'do',
 
             //扩展名
             'controller_file_subfix'    => '.php',

@@ -27,7 +27,6 @@ class Bootstrap
         return self::$_app;
     }
 
-
     /**
      * 初始化操作
      */

@@ -330,47 +330,11 @@ class Router
 //
 
 
-    //获取get中的数据
-    public static function query_get( )
+    //根据pathinfo_query 获取模块信息
+    public static function getModule()
     {
-        $get = $_GET;
-        $get_ = array();
-        foreach($get as $key=>$value){
-            if($value)$get_[$key] = $value;
-        }
-        return $get_;
-    }
 
-    /**
-     * @return string
-     * 获取地址栏uri信息
-     */
-    public static function pathinfo_query( )
-    {
-        $pathinfo = @parse_url($_SERVER['REQUEST_URI']);
-        if (empty($pathinfo)) {
-            die('request parse error:' . $_SERVER['REQUEST_URI']);
-        }
-        //pathinfo模式下有?,那么$pathinfo['query']也是非空的，这个时候查询字符串是PATH_INFO和query
-        $query_str = empty($pathinfo['query']) ? '' : $pathinfo['query'];
-        $path_info = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : (isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '');
-//    $path_info = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : (isset($_SERVER['REDIRECT_PATH_INFO']) ? $_SERVER['REDIRECT_PATH_INFO'] : '');
-        $pathinfo_query = empty($path_info) ? $query_str : $path_info . '&' . $query_str;
-        if ($pathinfo_query) {
-            $pathinfo_query = trim($pathinfo_query, '/&');
-        }
-        //urldecode 解码所有的参数名，解决get表单会编码参数名称的问题
-        $pq = $_pq = array();
-        $_pq = explode('&', $pathinfo_query);
-        foreach ($_pq as $value) {
-            $p = explode('=', $value);
-            if (isset($p[0])) {
-                $p[0] = urldecode($p[0]);
-            }
-            if(!empty($p[0]) || !empty($p[1]))  $pq[] = implode('=', $p);
-        }
-        $pathinfo_query = implode('&', $pq);
-        return $pathinfo_query;
+
     }
 
     public static function getInstance(){

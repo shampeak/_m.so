@@ -13,7 +13,7 @@ $config = [
     //'application_folder' => dirname(__FILE__),
 
     //入口系统模块 - hmvc必须
-    'modules' => [
+    'modulelist' => [
         's' => 'hmvc_s',
         'v' => 'hmvc_v',
     ],

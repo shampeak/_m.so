@@ -11,13 +11,73 @@ define(GRACEROOT,__DIR__.'/');
 class Application {
     private static $_instance;
     private function __clone(){}
+      public static function go()
+      {
+            /**
+             * 可以检测的
+             * error 处理
+            //        //设置发生非致命错误的处理
+            //        set_error_handler('Simple\Bootstrap\Bootstrap::handlerNonFatal');
+            //        // 设置对程序中未捕捉异常的处理
+            //        set_exception_handler('Simple\Bootstrap\Bootstrap::handlerException');
+            //        //注册自动加载类方法
+            //        spl_autoload_register('Simple\Bootstrap\Bootstrap::autoload');
+             * 对于配置文件中的响应
+             *
+             * 还有可以调用的::基础函数/基础方法/基础对象
+             *
+             * D(C());
+            request     ok
+            router      ok
+            config      ok
+            */
+            Bootstrap::init();
 
-    public static function run($conf){
-          C($conf);
+
+      }
+
+    public static function run($entrance){
           spl_autoload_register(array('Application', 'autoload'));              //psr-0
+            ConfigManager::Load($entrance);
+
+
+
+          D(C());
+
+
+
+
+          echo 'mark';
+$env = Environment::getInstance();
+
+
+          print_r($env['REMOTE_ADDR']);
+
+          exit;
+            /**
+             * 生成对象
+             * router
+             * config
+             * request
+             * bootstrap::ini();
+            ->>>>>>>>>>>>
+            在 go 中
+            //=================================
+            request     ok
+            router      ok
+            config      ok
+            bootrun     ok
+            //=================================
+            go中 ini ok
+
+            控制权交给go
+            Application::go     -> 生成response对象 ->view/json
+            */
+
+          C($conf);
           Bootstrap::init();                    //初期执行单位
 
-          /*
+          /**
            * 路由执行
            * G(C()) //能获得完整准确的结果
            * request 完成能输出完整的结果
@@ -26,7 +86,7 @@ class Application {
 
 
 
-
+      /**
           //config
           //ConfigManager::Load($conf);
           //D(ConfigManager::get('mysql'));
@@ -44,6 +104,9 @@ class Application {
 //          $router
 //          $config
 //          $_REQUEST
+      */
+
+
             $app = $controller;
 
           Router::getInstance()->start($app);           //进行路由方面的执行

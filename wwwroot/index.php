@@ -7,6 +7,7 @@ error_reporting(E_ALL ^ E_NOTICE);      //抑制错误
 include '../Grace/Application.php';
 $config = [
             'APP_PATH'    => '../App/',
+            'modulelist' =>123,
 //    'GRACE_PATH' => '../33/',
 
 //            'GRACE_PATH'    => '../App/',       //有默认值,如果设置会覆盖默认值
