@@ -7,52 +7,82 @@
 
 class ConfigManager
 {
+    protected static $configmanager;
 
-    /**
-     * 系统的默认配置
-     * @var array
-     */
-    private static $_entrance           = null;
-    private static $_module             = null;
-    private static $_app                = null;
-    private static $_AppDefaultConfig   = null;
+    public $AppDefaultConfig;
+    public $ent;
+    public $env;
+    public $headers;
+    public $app;
+    public $modulelist;
 
-    public static function Load($entrance)
+    private function __construct($entrance)
     {
-        //default
-        $conf['app_defaultConfig'] = self::AppDefaultConfig();
+        //创建config
+        $this->AppDefaultConfig = $this->AppDefaultConfig();
 
         //入口配置
-        $conf['ent'] = $entrance;
+        $this->ent = $entrance;
 
         //获取环境参数
-        $conf['env'] = Environment::getInstance()->getenv();
+        $this->env = Environment::getInstance()->get();
+
+        //HTTP request headers (retains HTTP_ prefix to match $_SERVER)
+        $this->headers = Headers::extract($_SERVER);
 
         //获取app 配置
-        $file = $conf['ent']['CONF_FILE'] = $conf['ent']['CONF_FILE']?:'Conf.php';
-        $conf['app'] = G($conf['ent']['APP_PATH'].$file);
+        $file = $this->ent['CONF_FILE'] = $this->ent['CONF_FILE']?:'Conf.php';
+        $this->app = G($this->ent['APP_PATH'].$file);
 
         //所有配置的模块列表
-        $modulelist = $conf['ent']['modulelist']?:$conf['app']['modulelist'];
+        $modulelist = $this->ent['modulelist']?:$this->app['modulelist'];
         $modulelist = is_array($modulelist)?$modulelist:[];
-        $conf['modulelist'] = array_keys($modulelist);
+        $this->modulelist = array_keys($modulelist);
+    }
 
-        //获取module配置
-        $module = Router::getmodule();
+    /**
+     * Get environment instance (singleton)
+     */
+    public static function getInstance($entrance='')
+    {
+        if (is_null(self::$configmanager)) {
+            self::$configmanager = new self($entrance);
+        }
+        return self::$configmanager;
+    }
+
+    public function Load()
+    {
+        $module = Router::getInstance()->getModule();
+        $file = $this->ent['CONF_FILE'] = $this->ent['CONF_FILE']?:'Conf.php';
+        $filep = $this->ent['APP_PATH'].'Modules/'.$this->app['modulelist'][$module].'/'.$file;
+        $this->moduleConfig = G($filep);
+
+        //configmix
+        $this->mixConfig();
+        return true;
+    }
+
+    public function mixConfig()
+    {
+        $Conf['headers'] = $this->headers;
+        $Conf['env'] = $this->env;
 
 
 
-        //写入所有配置
-        C($conf);
+        $con = array_merge($this->app,$this->moduleConfig);
+        $con = array_merge($con,$this->ent);
+        $con = array_merge($this->AppDefaultConfig,$con);
+        $Conf['a'] = $con;
+        C($Conf);
 
-//        self::$_AppDefaultConfig = static::AppDefaultConfig();
-//        self::$_entrance = $conf;
-//
-//        $conf['CONF_FILE'] = $conf['CONF_FILE']?:'Conf.php';
-//        self::$_app = array_merge(G($conf['APP_PATH'].$conf['CONF_FILE']),self::$_entrance);      //入口设定覆盖文件设定
-//
-//        //写入C
-//        C(array_merge(self::$_AppDefaultConfig,self::$_app));
+//        $Conf['ent'] = $this->ent;
+//        $Conf['AppDefaultConfig'] = $this->AppDefaultConfig;
+//        $Conf['moduleConfig'] = $this->moduleConfig;
+//        $Conf['app'] = $this->app;
+//        +app
+//        $Conf['modulelist'] = $this->modulelist;
+        return true;
     }
 
 
@@ -61,29 +91,19 @@ class ConfigManager
      * @param $name
      * @return mixed
      */
-    public static function get($name)
+    public function get($name)
     {
         return C($name);
-    }
-
-    public static function appConfig()
-    {
-        return self::$_app;
-    }
-
-    public static function moduleConfig()
-    {
-        //这里进行运算
     }
 
     /**
      * 默认配置
      * @return array
      */
-    public static function AppDefaultConfig(){
+    public function AppDefaultConfig(){
         return [
+            'APP_PATH'  =>    '../App/',
             'GRACE_PATH'=>      '../Grace/',
-            'APP_BASE'          => C('APP_PATH'),
             'WDS'               => DIRECTORY_SEPARATOR,
             'CONF_FILE'         => 'Conf.php',
             'default_timezone'  => 'PRC',
@@ -95,10 +115,10 @@ class ConfigManager
             'message_page_view' => 'error/error_view.php',
 
             //相对路径
-            'controller_folder' => 'Controller/',
-            'model_folder'      => 'Models/',
-            'view_folder'       => 'Views/',
-            'library_folder'    => 'Lib/',
+//            'controller_folder' => 'Controller/',
+//            'model_folder'      => 'Models/',
+//            'view_folder'       => 'Views/',
+//            'library_folder'    => 'Lib/',
 //            'helper_folder'     => 'helper/',
             //相对路径
 
@@ -107,11 +127,11 @@ class ConfigManager
             'default_controller_method_prefix'  => 'do',
 
             //扩展名
-            'controller_file_subfix'    => '.php',
-            'model_file_subfix'         => '.php',
-            'view_file_subfix'          => '.php',
-            'library_file_subfix'       => '.php',
-            'helper_file_subfix'        => '.php',
+//            'controller_file_subfix'    => '.php',
+//            'model_file_subfix'         => '.php',
+//            'view_file_subfix'          => '.php',
+//            'library_file_subfix'       => '.php',
+//            'helper_file_subfix'        => '.php',
             'debug' => true,
         ];
     }

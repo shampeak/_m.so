@@ -1,14 +1,5 @@
 <?php
-/**
- * Slim HTTP Request
- *
- * This class provides a human-friendly interface to the Slim environment variables;
- * environment variables are passed by reference and will be modified directly.
- *
- * @package Slim
- * @author  Josh Lockhart
- * @since   1.0.0
- */
+
 
 class Request
 {
@@ -26,28 +17,26 @@ class Request
     protected static $formDataMediaTypes = array('application/x-www-form-urlencoded');
     /**
      * Application Environment
-     * @var \Slim\Environment
      */
-    protected $env;
+
+    public $env;
     /**
      * HTTP Headers
-     * @var \Slim\Http\Headers
      */
+
     public $headers;
     /**
      * HTTP Cookies
-     * @var \Slim\Helper\Set
      */
     public $cookies;
     /**
      * Constructor
-     * @param \Slim\Environment $env
      */
-    public function __construct(\Slim\Environment $env)
+    public function __construct()
     {
-        $this->env = $env;
-        $this->headers = new \Slim\Http\Headers(\Slim\Http\Headers::extract($env));
-        $this->cookies = new \Slim\Helper\Set(\Slim\Http\Util::parseCookieHeader($env['HTTP_COOKIE']));
+        $this->env      = C('env');
+        $this->headers  = C('headers');
+        $this->cookies  = C('cookies');
     }
     /**
      * Get HTTP method
@@ -100,11 +89,8 @@ class Request
     /**
      * Is this a HEAD request?
      * @return bool
+     * 这个暂时不考虑 略过
      */
-    public function isHead()
-    {
-        return $this->getMethod() === self::METHOD_HEAD;
-    }
     /**
      * Is this a OPTIONS request?
      * @return bool
@@ -224,6 +210,8 @@ class Request
             return $this->env['slim.request.form_hash'];
         }
     }
+
+
     /**
      * Fetch PUT data (alias for \Slim\Http\Request::post)
      * @param  string           $key

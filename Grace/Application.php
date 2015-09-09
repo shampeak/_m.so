@@ -11,48 +11,108 @@ define(GRACEROOT,__DIR__.'/');
 class Application {
     private static $_instance;
     private function __clone(){}
-      public static function go()
-      {
-            /**
-             * 可以检测的
-             * error 处理
-            //        //设置发生非致命错误的处理
-            //        set_error_handler('Simple\Bootstrap\Bootstrap::handlerNonFatal');
-            //        // 设置对程序中未捕捉异常的处理
-            //        set_exception_handler('Simple\Bootstrap\Bootstrap::handlerException');
-            //        //注册自动加载类方法
-            //        spl_autoload_register('Simple\Bootstrap\Bootstrap::autoload');
-             * 对于配置文件中的响应
-             *
-             * 还有可以调用的::基础函数/基础方法/基础对象
-             *
-             * D(C());
-            request     ok
-            router      ok
-            config      ok
-            */
-            Bootstrap::init();
-
-
-      }
+//      public static function go()
+//      {
+//            /**
+//             * 可以检测的
+//             * error 处理
+//            //        //设置发生非致命错误的处理
+//            //        set_error_handler('Simple\Bootstrap\Bootstrap::handlerNonFatal');
+//            //        // 设置对程序中未捕捉异常的处理
+//            //        set_exception_handler('Simple\Bootstrap\Bootstrap::handlerException');
+//            //        //注册自动加载类方法
+//            //        spl_autoload_register('Simple\Bootstrap\Bootstrap::autoload');
+//             * 对于配置文件中的响应
+//             *
+//             * 还有可以调用的::基础函数/基础方法/基础对象
+//             *
+//             * D(C());
+//            request     ok
+//            router      ok
+//            config      ok
+//            */
+//           // Bootstrap::init();
+//
+//
+//      }
 
     public static function run($entrance){
           spl_autoload_register(array('Application', 'autoload'));              //psr-0
-            ConfigManager::Load($entrance);
+          /**
+           * 获取配置信息
+           * 同步配置包括 / 入口配置 / 模块配置 / app配置  / 默认配置 相互覆盖
+           * 验证 D(C());
+           */
+          ConfigManager::getInstance($entrance)->load();;             //OK 配置完成  验证
+
+          /**
+           * 计算路由信息
+           * 验证D(C('Router'))
+           */
+          Router::getInstance()->load();        //路由信息
+
+
+//            Request::getInstance()->load();       //根据router / config /get /post 获取输入的参数值
 
 
 
           D(C());
+          echo 123;
+          exit;
+          $request = new Router();
 
+
+          D(C());
+          $request = new request();
+          D($request->headers);
+          D($request->env);
+          D($request->cookies);
+
+          exit;
+          D(C('env'));
+//          D($request->getMethod());       //提交的方法
+//          D($request->isGet());           //提交的方法
+//          D($request->isPost());          //提交的方法
+//          D($request->isPut());           //提交的方法
+//          D($request->isPatch());       //提交的方法
+//          D($request->isDelete());       //提交的方法
+//          D($request->isOptions());       //提交的方法
+
+          D($request->getHost());
+          D($request->getHostWithPort());
+          D($request->getPort());
+          echo '------';
+          /**
+           * 下面三个path模式下不准确
+           */
+          D($request->getScriptName());
+          D($request->getRootUri());
+          D($request->getPath());
+          D($request->getPathInfo());     //同下
+          D($request->getResourceUri()); //同上
+
+          D($request->getIp());
+
+          D($request->getRootUri());
+
+          /**
+           * 调试
+          //验证系列配置数据
+          D(ConfigManager::get('modulelist'));
+          D(ConfigManager::get('app_defaultConfig'));
+          D(ConfigManager::get('ent'));
+          D(ConfigManager::get('env'));
+          D(ConfigManager::get('app'));
+          D(C());
+          */
+
+          /**
+           * 对request的验证
+           */
 
 
 
           echo 'mark';
-$env = Environment::getInstance();
-
-
-          print_r($env['REMOTE_ADDR']);
-
           exit;
             /**
              * 生成对象
@@ -213,35 +273,35 @@ exit;
     }
 
 
-    /**
-     * 路由已经准备好了
-     * 根据路由获取hmvc的配置信息
-     */
-    public function loadAppConfig()
-    {
-        $router = C('router');
-        $modules = C('modules');
-
-        if($router['Module']){
-            C('APP_PATH',C('APP_PATH').'Modules/'.$modules[$router['Module']].'/');
-            $conf = G(C('APP_PATH').C('CONF_FILE'));
-            /**
-             * 去除掉屏蔽的设置
-             */
-            if(isset($conf['APP_PATH']))    unset($conf['APP_PATH']);
-            if(isset($conf['modules']))     unset($conf['modules']);
-            if(isset($conf['router']))      unset($conf['router']);
-            C($conf);
-        }
-        /**
-         * 补全route信息
-         */
-        $router = C('router');
-        if(empty($router['Controller']))$router['Controller'] = C('default_controller');
-        if(empty($router['Action']))$router['Action'] = C('default_controller_method');
-        C('router',$router);
-        return true;
-    }
+//    /**
+//     * 路由已经准备好了
+//     * 根据路由获取hmvc的配置信息
+//     */
+//    public function loadAppConfig()
+//    {
+//        $router = C('router');
+//        $modules = C('modules');
+//
+//        if($router['Module']){
+//            C('APP_PATH',C('APP_PATH').'Modules/'.$modules[$router['Module']].'/');
+//            $conf = G(C('APP_PATH').C('CONF_FILE'));
+//            /**
+//             * 去除掉屏蔽的设置
+//             */
+//            if(isset($conf['APP_PATH']))    unset($conf['APP_PATH']);
+//            if(isset($conf['modules']))     unset($conf['modules']);
+//            if(isset($conf['router']))      unset($conf['router']);
+//            C($conf);
+//        }
+//        /**
+//         * 补全route信息
+//         */
+//        $router = C('router');
+//        if(empty($router['Controller']))$router['Controller'] = C('default_controller');
+//        if(empty($router['Action']))$router['Action'] = C('default_controller_method');
+//        C('router',$router);
+//        return true;
+//    }
 
       /**
       * 自动加载函数

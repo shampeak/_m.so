@@ -7,7 +7,7 @@ $config = [
     'userlogin' => '/s/home/login',
     'usermain' => '/s/home/main',
 
-    'error_manage'=>'',
+    'error_manage'=>'123',
 //    'application_folder' => dirname(__FILE__),
     //入口系统模块 - hmvc必须
 ];

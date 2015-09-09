@@ -18,10 +18,14 @@ class Environment implements ArrayAccess, IteratorAggregate
      */
     protected static $environment;
 
-    public  function getenv()
+    public  function get($name = '')
     {
-        //写入配置
-        return $this->properties;
+        if ($name) {
+           return $this->properties[$name];
+        }else{
+            //返回数据
+            return $this->properties;
+        }
     }
 
     /**
@@ -69,9 +73,6 @@ class Environment implements ArrayAccess, IteratorAggregate
      */
     private function __construct($settings = null)
     {
-        if ($settings) {
-            $this->properties = $settings;
-        } else {
             $env = array();
             //The HTTP request method
             $env['REQUEST_METHOD'] = $_SERVER['REQUEST_METHOD'];
@@ -102,17 +103,16 @@ class Environment implements ArrayAccess, IteratorAggregate
             //Number of server port that is running the script
             //Fixes: https://github.com/slimphp/Slim/issues/962
             $env['SERVER_PORT'] = isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : 80;
-            //HTTP request headers (retains HTTP_ prefix to match $_SERVER)
-            $headers = self::extract($_SERVER);
-            foreach ($headers as $key => $value) {
-               $env[$key] = $value;
-            }
+
+            $env['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+
+            //Input stream (readable one time only; not available for multipart/form-data requests) post data
+            $rawInput = @file_get_contents('php://input');
+            $env['input.POST'] = $rawInput?:'';
 
             $env['pathinfo_query'] = $this->pathinfo_query();
 
-
             $this->properties = $env;
-        }
     }
 
     /**
@@ -186,30 +186,6 @@ class Environment implements ArrayAccess, IteratorAggregate
     public function getIterator()
     {
         return new ArrayIterator($this->properties);
-    }
-
-    protected static $special = array(
-        'CONTENT_TYPE',
-        'CONTENT_LENGTH',
-        'PHP_AUTH_USER',
-        'PHP_AUTH_PW',
-        'PHP_AUTH_DIGEST',
-        'AUTH_TYPE'
-    );
-
-    public static function extract($data)
-    {
-        $results = array();
-        foreach ($data as $key => $value) {
-            $key = strtoupper($key);
-            if (strpos($key, 'X_') === 0 || strpos($key, 'HTTP_') === 0 || in_array($key, static::$special)) {
-                if ($key === 'HTTP_CONTENT_LENGTH') {
-                    continue;
-                }
-                $results[$key] = $value;
-            }
-        }
-        return $results;
     }
 
 

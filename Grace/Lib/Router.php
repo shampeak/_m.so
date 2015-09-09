@@ -3,10 +3,20 @@
 
 class Router
 {
-    //格式永远是mca
+    public $rs = [];        //路由源数据 第一步初始
 
-    public $router = [];
-    public $moduleslist = [];
+    //传入的初始信息
+    public $app_defaultConfig = [];
+    public $ent = [];
+    public $env = [];
+    public $headers = [];
+    public $app = [];
+    public $modulelist = [];
+    //==========================================
+
+
+    public $routerInfo = [];
+
 
     public $query   = [];
     public $get     = [];
@@ -16,6 +26,7 @@ class Router
 
     public static  $_instance;
 
+    //扩展方法 /c/a/ex
     public function ActionExt()
     {
         return [
@@ -28,54 +39,39 @@ class Router
         ];
     }
 
+    public function MethodType()
+    {
+        return [
+            'POST',
+            'GET',
+            'PUT',
+            'DELETE',
+            'PATCH',
+            'OPTIONS',
+        ];
+    }
+
+    //路由结果模板
     public function RouterDefault(){
         return [
             'method_modules'        => '',
-            'method_controller'    => '',
-            'method_action'        => '',
-            'method_action_ext'    => '',
-            'ispost'        => false,
+            'method_controller'     => '',
+            'method_action'         => '',
+            'method_action_ext'     => '',
+            'methodtype'            => '',
             'ActionPrefix'      => C('controller_method_prefix'),
         ];
     }
 
-
+    private function __construct(){}
 
     public function load()
     {
-        $this->query = strtolower($this->pathinfo_query());
-        $this->get = $this->query_get();
 
-        //任务,根据app配置,把路由到的module运算出来
-        $this->router = $this->RouterDefault();
-
-        //在这里需要把模块计算出来
-        $this->moduleslist = array_keys(C('modules'));              //模块列表索引
-
-        $this->router_s = $this->router_s();        //step one 获得要分析的源数据        D($this->router_s);      //从三个方向来分析路由
-
-        $this->ActionExt =$this->ActionExt();
-
-        //获取mca序列
-        $this->router_['_queryuri'] =   $this->getquery_uri($this->router_s);           //单独分析
-        $this->router_['_querymca'] =   $this->getquery_urimca($this->router_s);           //单独分析
-        $this->router_['_getmca'] =     $this->getquery_mca($this->router_s);             //单独分析
-
-
+        echo 'mark router';
+        //ok 已有可以用的数据包括
         D(C());
-       // ok
-        D($this->router);
-
-
-
-        //$this->mix($this->router_);
-
-        //D($this->router_);
-        //ok 都获取到了数据
-        //mix
-
-
-
+        exit;
     }
 
     //针对地址栏参数,querystring模式获取到的GET
@@ -330,12 +326,7 @@ class Router
 //
 
 
-    //根据pathinfo_query 获取模块信息
-    public static function getModule()
-    {
 
-
-    }
 
     public static function getInstance(){
         if(!(self::$_instance instanceof self)){
@@ -343,5 +334,46 @@ class Router
         }
         return self::$_instance;
     }
+
+
+    /**     独立运行 不依赖于本类的其他方法 运行处模块名,并且传递出去
+     * @return array
+     * 这个在conf中第一个被调用时入口程序
+    //根据pathinfo_query 获取模块信息
+     */
+    public  function getModule()
+    {
+        //计算模块
+        //并且返回
+        $config = ConfigManager::getInstance();       //未完成的
+        $pathinfo_query = $config->env['pathinfo_query'];
+        $modulelist     = is_array($config->modulelist)?$config->modulelist:[];
+
+        //根据这两个计算出模块信息
+//        D($pathinfo_query);
+//        D($modulelist);
+
+        $pathinfo_query = strtolower($pathinfo_query);
+
+        $pq = explode('&',$pathinfo_query);
+
+        //第一个存在等号
+        if(!isset(explode('=',  current($pq))[1])){
+            $mo_ = current(explode('/',trim(array_shift($pq),'/')));     //如果存在的话,mo就是第一个/之前的值
+        }
+
+        foreach($pq as $key=>$value){
+            $pq_ = explode('=',$value);
+            $pq_[0] && $pq_[1] && $pq__[$pq_[0]] = $pq_[1];
+        }
+        $mo_ = $pq__['m']?:$mo_?:'';
+
+        //监测是否在modulelist中
+        if($mo_){
+            $mo = in_array($mo_,$modulelist)?$mo_:'';
+        }
+        return $mo;
+    }
+
 
 }
