@@ -13,6 +13,8 @@ class Rbac{
 //  '?'     //查询数据库
 
     public function run($rules = '') {
+        echo 'RBAC';
+        exit;
         $this->Module       = $rules['Module'];
         $this->Controller   = $rules['Controller'];
         $this->Action       = $rules['Action'];

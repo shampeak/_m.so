@@ -6,7 +6,6 @@
 $config = [
     'error_manage' => '',
         'APP_PATH' => '../App213/',
-//    'GRACE_PATH' => '../2123/',
     //缓存路径
     'Cacheroot' => C('APP_PATH').'cache/',
 
@@ -18,6 +17,15 @@ $config = [
         'v' => 'hmvc_v',
     ],
 
+    //控制器扩展
+    'ActionExt'=>[
+        'po',       //post  有post
+        'ed',       //修改
+        'cf',       //修改状态
+        'de',       //删除
+        'json',     // json
+        'vf',       //显示
+    ],
 
     'mysql'=>[
 //        'default'=>[

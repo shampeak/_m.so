@@ -1,32 +1,7 @@
 <?php
-/**
- * @link http://www.simple-inc.cn/
- * @copyright Copyright (c) 2014 Simple-inc Software inc
- * @license http://www.apache.org/licenses/LICENSE-2.0
- */
-
-
 
 class Bootstrap
 {
-
-    /**
-     * app的相关信息
-     * @var Application
-     */
-    private static $_app = null;
-
-
-    /**
-     * 获取正在运行的项目
-     *
-     * @return Application
-     */
-    public static function getApp()
-    {
-        return self::$_app;
-    }
-
     /**
      * 初始化操作
      */
@@ -43,35 +18,25 @@ class Bootstrap
          self::checkRun(); //检查运行环境
 //        //加载第三方库
 //        require_once SIMPLE_LIB_PATH . 'Simple' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-        // 1 :
-
-        //检查运行环境
-        $this->checkRun();
 
 
-        //获取入口配置
-        $Econf = C('entrance');
-        Router::getInstance()->load();
-        ConfigManager::load();
-
-
-
+        $timeZone =C('app')['default_timezone'];
+        date_default_timezone_set($timeZone);
     }
 
     /**
      * 检查运行环境
-     * @throws Exception\BootstrapException
      */
     private static function checkRun()
     {
-        if (defined('APP_PATH') == false)
-            die('APP_PATH is not defined');
+        if (defined('GRACEROOT') == false)
+            die('GRACEROOT is not defined');
         //    throw new BootstrapException('APP_PATH is not defined');
 
 //        if (defined('SIMPLE_LIB_PATH') == false)
 //            throw new BootstrapException('SIMPLE_LIB_PATH is not defined');
-        if(version_compare(PHP_VERSION,'5.3.0','<'))
-            throw new BootstrapException('PHP版本太低， PHP > 5.3.0 !');
+        if(version_compare(PHP_VERSION,'5.4.0','<'))
+            die('PHP版本太低， PHP > 5.4.0 !');
     }
 
 
@@ -81,9 +46,6 @@ class Bootstrap
      */
     private static function sysConst()
     {
-        D(C());17701253161
-
-//        APP_PATH
         //版本定义
         define('VERSION', '0.1-alpha');
     }
@@ -101,14 +63,8 @@ class Bootstrap
         $timeZone = ConfigManager::get('timezone');
         date_default_timezone_set($timeZone);
         self::$_app->run();
-
     }
 
-//    /**
-//     * 自动加载
-//     * @param $className
-//     * @throws Exception\BootstrapException
-//     */
 //    public static function autoload($className)
 //    {
 //

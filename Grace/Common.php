@@ -197,7 +197,7 @@ function W($name, $data = array()){
  * @return void
  */
 function halt($str, $display=false){
-    Log::fatal($str.' debug_backtrace:'.var_export(debug_backtrace(), true));
+    //Log::fatal($str.' debug_backtrace:'.var_export(debug_backtrace(), true));
     header("Content-Type:text/html; charset=utf-8");
     if($display){
         echo "<pre>";
@@ -260,7 +260,7 @@ function error404()
 {
     header('HTTP/1.1 404 Not Found');
     header("status: 404 Not Found");
-    include C('error_page_404');
+    include C('app')['APP_PATH'].C('app')['error_page_404'];
     exit;
 }
 
@@ -317,4 +317,26 @@ function GetIP(){
         $cip = "无法获取！";
     }
     return $cip;
+}
+
+
+function RULES(){
+    $rules = $rules_ = [];
+    if(file_exists(C('BASE_FULL_PATH').'Rules.php')){
+        $rules = include C('BASE_FULL_PATH').'Rules.php';
+    }
+    if(!empty(C('router')['Module'])){
+        $rulepath =  C('APP_FULL_PATH').'Rules.php';
+        if(file_exists($rulepath)){
+            $rules_ = include $rulepath;
+        }
+    }
+    if(!empty($rules_)){
+        $access = array_merge($rules['access']['rules'],$rules_['access']['rules']?:[]);
+        unset($rules['access']['rules']);
+        unset($rules_['access']['rules']);
+        $rules = array_merge($rules,$rules_?:[]);
+        $rules['access']['rules'] = $access;
+    }
+    return $rules;
 }

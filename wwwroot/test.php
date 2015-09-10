@@ -3,3 +3,8 @@
   <input type="submit" name="button" id="button" value="提交" />
   <label for="textarea"></label>
 </form>
+<?php
+
+
+
+?>

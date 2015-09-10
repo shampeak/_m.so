@@ -17,6 +17,7 @@ class Model
 
       public function __construct(){
             $this->S = \Seter\Seter::getInstance();
+
             $this->coderes = $this->DefaultCoderes();
             $this->jsoncode(0);          //初始状态
             $this->_init();
@@ -47,6 +48,7 @@ class Model
             ];
             return true;
       }
+
 
       //结果输出修饰
       //返回操作结果    或者      给结果赋值

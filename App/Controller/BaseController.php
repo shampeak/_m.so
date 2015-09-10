@@ -18,6 +18,21 @@ class BaseController extends Controller{
         parent::__construct();
     }
 
+    /**
+     * 前置hook
+     */
+//    public function _init(){
+//        header("Content-Type:text/html; charset=utf-8");
+//    }
+
+    public function __DisplayPre(){
+//        $this->assign('router',123);      //给模板赋值
+//        $this->assign('env',123);
+//        $this->assign('qwre',123);
+//            $data['user']    = $this->user->getuserinfo();
+    }
+
+
 
 //  '*'     //所有
 //  '@'     //登陆用户

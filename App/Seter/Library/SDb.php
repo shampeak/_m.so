@@ -44,7 +44,7 @@ class SDb{
     private function __clone(){}
 
     public function __construct($chr = 'default'){
-        $config = C('mysql');
+        $config = C('app')['mysql'];
         $this->Config   = $config[$chr];
 
         $this->base     = dirname(__FILE__)."/";

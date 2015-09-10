@@ -157,6 +157,7 @@ class Seter extends \Seter\Core\Base
         echo ") not exist！";
     }
 
+    //Seter中间的,暂时不用
     public static function autoload($className)
     {
         $thisClass = str_replace(__NAMESPACE__ . '\\', '', __CLASS__);
@@ -181,13 +182,18 @@ class Seter extends \Seter\Core\Base
         }
     }
 
+
     /**
      * Register Slim's PSR-0 autoloader
+     * 还有需要psr-0 的包括
+     * 模型自己做
+     * lib 中
      */
     public static function registerAutoloader()
     {
         spl_autoload_register(__NAMESPACE__ . "\\Seter::autoload");
     }
+
 
 }
 

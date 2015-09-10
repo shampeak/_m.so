@@ -5,8 +5,15 @@ class doc extends Controller {
 
     //根据情况进行跳转
     public function doIndex($params){
-
-
+          Application::autoload2("test");
+          $this->display('',[
+              'title'     => '文档管理',
+             // 'booklist'  => $this->table->g_book->where("enable = 1")->getall()?:[],
+              'node'  => $node,
+              //'book'  =>  $this->table->g_book->where("bookid = $params")->getrow()?:[],
+          ]);
+          exit;
+D(C());
         $params = $params?intval($params):1;
 
         $booknode  = $this->table->g_booknode->where("bookid = '$params' and enable = 1")->order(" sort desc,nodeid desc")->getall();

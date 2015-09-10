@@ -5,6 +5,8 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0
  */
 
+namespace Seter\DBC\Driver;
+
 class MySQLPDO extends \PDO
 {
     /**

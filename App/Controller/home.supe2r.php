@@ -1,42 +1,5 @@
 <?php
-
-class home extends BaseController {
-
-
-
-
-
-    //退出登陆
-    public function doSuper()
-    {
-//$rc = $this->db->getall("select * from testc");
-//$rc = $this->table->testc->getall();
-//$this->Model->Modeltest->say();
-echo 'asdf';
-
-//D(C());
-exit;
-
-        D($rc);
-
-
-        $this->display('',[
-            'title'=>'登陆',
-        ]);       //默认的index.php
-        exit;
-        //D($this->S);
-//        $this->model->UserModel->signout();
-//        $this->Redirect('/');
-    }
-
-
-
-
-
-
-
-
-
+class home extends Controller {
 
 
     //根据情况进行跳转
@@ -72,6 +35,13 @@ exit;
     }
 
 
+
+    //退出登陆
+    public function doSuper_POST()
+    {
+        $this->model->UserModel->signout();
+        $this->Redirect('/');
+    }
 
 
 

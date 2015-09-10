@@ -59,21 +59,37 @@ class ConfigManager
         $this->moduleConfig = G($filep);
 
         //configmix
-        $this->mixConfig();
+        $this->mixConfig($module);
         return true;
     }
 
-    public function mixConfig()
+    public function mixConfig($module)
     {
         $Conf['headers'] = $this->headers;
         $Conf['env'] = $this->env;
 
 
-
+        //app 配置
         $con = array_merge($this->app,$this->moduleConfig);
         $con = array_merge($con,$this->ent);
         $con = array_merge($this->AppDefaultConfig,$con);
-        $Conf['a'] = $con;
+        $Conf['app'] = $con;
+
+        //获取rules 配置
+        $file = 'Rules.php';
+        $fileb = $this->ent['APP_PATH'].$file;
+        $filep = $this->ent['APP_PATH'].'Modules/'.$this->app['modulelist'][$module].'/'.$file;
+        $rules = G($fileb);
+        if($module){             $rules_ =  G($filep);         }
+        if(!empty($rules_)){
+            $access = array_merge($rules['access']['rules'],$rules_['access']['rules']?:[]);
+            unset($rules['access']['rules']);
+            unset($rules_['access']['rules']);
+            $rules = array_merge($rules,$rules_?:[]);
+            $rules['access']['rules'] = $access;
+        }
+        $Conf['rules'] = $rules;
+
         C($Conf);
 
 //        $Conf['ent'] = $this->ent;
