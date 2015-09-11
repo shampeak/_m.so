@@ -110,8 +110,8 @@
                     <h3>代码示例2</h3>
                     <textarea name="nrcode" class="form-control" rows="5" data-uk-htmleditor="{markdown:true}"><?=$node['nrcode']?></textarea>
                     
-                    <h3>参数【json】</h3>
-                    <textarea name="params" class="form-control" rows="10"><?=$node['params']?></textarea>
+                    <!-- h3>参数【json】</h3>
+                    <textarea name="params" class="form-control" rows="10"><?=$node['params']?></textarea -->
                     <input type="hidden" name="nodeid" value="<?=$node['nodeid']?>">
                     <input type="submit" name="button" id="button" value="提交">
 				</div>

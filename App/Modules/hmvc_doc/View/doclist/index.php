@@ -108,11 +108,11 @@
 									<table class="table table-model-2 table-hover">
 										<thead>
 											<tr>
-												<th>#id</th>
+												<th width="100">#id</th>
 												<th>title</th>
-												<th>sort</th>
-												<th>enable</th>
-												<th>操作</th>
+												<th width="100">sort</th>
+												<th width="100">enable</th>
+												<th width="100">操作</th>
 											</tr>
 										</thead>
 										
@@ -123,7 +123,7 @@
                                             
                                             <tr>
 												<td><?=$value['bookid']?>.<?=$value['nodeid']?></td>
-												<td><?=$value['title']?></td>
+												<td><font color="#000000"><?=$value['title']?></font></td>
 												<td><?=$value['sort']?></td>
 												<td><?=$value['enable']?></td>
 												<td><a href="/doc/edit/?bookid=<?=$value['bookid']?>&nodeid=<?=$value['nodeid']?>">编辑</a></td>
@@ -137,7 +137,7 @@
                                             
                                             <tr>
 												<td>&nbsp;&nbsp;&nbsp;&nbsp; - <?=$v['bookid']?>.<?=$v['nodeid']?></td>
-												<td><?=$v['title']?></td>
+												<td>&nbsp;&nbsp;&nbsp;&nbsp;└──<font color="#666666"><?=$v['title']?></font></td>
 												<td><?=$v['sort']?></td>
 												<td><?=$v['enable']?></td>
 												<td><a href="/doc/edit/?bookid=<?=$v['bookid']?>&nodeid=<?=$v['nodeid']?>">编辑</a></td>
