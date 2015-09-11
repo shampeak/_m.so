@@ -45,6 +45,8 @@ class SDb{
 
     public function __construct($chr = 'default'){
         $config = C('app')['mysql'];
+
+
         $this->Config   = $config[$chr];
 
         $this->base     = dirname(__FILE__)."/";
@@ -188,6 +190,7 @@ class SDb{
     }
 
     public function getAll($sql,$str=''){
+
         $res = $this->query($sql);
         $arr = array();
         while ($row = mysql_fetch_assoc($res)){

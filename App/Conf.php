@@ -13,8 +13,9 @@ $config = [
 
     //入口系统模块 - hmvc必须
     'modulelist' => [
-        's' => 'hmvc_s',
-        'v' => 'hmvc_v',
+        'doc'   => 'hmvc_doc',
+        's'     => 'hmvc_s',
+        'v'     => 'hmvc_v',
     ],
 
     //控制器扩展

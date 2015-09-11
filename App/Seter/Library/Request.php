@@ -11,7 +11,7 @@ class Request{
     }
 
     public function get(){
-        $router = C('router');
+        $router = C('Router');
         $parms = isset($router['params'])?$router['params']:[];
         return $parms;
     }

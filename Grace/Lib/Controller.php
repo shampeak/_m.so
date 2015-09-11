@@ -79,7 +79,6 @@ class Controller {
       public function _init(){
             header("Content-Type:text/html; charset=utf-8");
             //$this->rbac->run($this->getaccessRules());
-
       }
 
       /**
