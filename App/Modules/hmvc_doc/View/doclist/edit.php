@@ -86,18 +86,18 @@
 					  <div class="panel-body panel-border">
 						
 						  <div class="row">
-								<div class="col-sm-12">
+								<div class="col-sm-4">
 								<?php if($GET['bookid']){?>
-                                <h4>[<a href="/doc/edit/?bookid=<?=$GET['bookid']?>">添加新数据</a>] [<a href="/doc/doclist/edit/?bookid=<?=$GET['bookid']?>">简单模式</a>]</h4>
+                                <h4>[<a href="/doc/edit/?bookid=<?=$GET['bookid']?>" target="_blank">添加新数据</a>] [<a href="/doc/doclist/index/?bookid=<?=$GET['bookid']?>">原始模式</a>]</h4>
 								<?php }?>
                                 	<!-- Table Model 2 -->
 									<strong>book列表 ： </strong>
                                     <?php
                                     foreach($booklist as $key=>$value){
 										if($value['bookid'] == $GET['bookid']){
-											echo "<a href='/doc/doclist/index?bookid={$value['bookid']}'><span style=background-color:red>{$value['bookname']}</span></a> | ";
+											echo "<a href='/doc/doclist/edit?bookid={$value['bookid']}'><span style=background-color:red>{$value['bookname']}</span></a> | ";
 										}else{
-											echo "<a href='/doc/doclist/index?bookid={$value['bookid']}'>{$value['bookname']}</a> | ";
+											echo "<a href='/doc/doclist/edit?bookid={$value['bookid']}'>{$value['bookname']}</a> | ";
 										}
 										?>
 									<?php
@@ -108,11 +108,10 @@
 									<table class="table table-model-2 table-hover">
 										<thead>
 											<tr>
-												<th width="100">#id</th>
+												<th width="80">#id</th>
 												<th>title</th>
-												<th width="100">sort</th>
-												<th width="100">enable</th>
-												<th width="100">操作</th>
+												<th width="50">sort</th>
+												<th width="50">enable</th>
 											</tr>
 										</thead>
 										
@@ -123,10 +122,9 @@
                                             
                                             <tr>
 												<td><?=$value['bookid']?>.<?=$value['nodeid']?></td>
-												<td><font color="#000000"><?=$value['title']?></font></td>
+												<td><a class="suedit" href="/doc/edit/?bookid=<?=$value['bookid']?>&nodeid=<?=$value['nodeid']?>"><?=$value['title']?></a></td>
 												<td><?=$value['sort']?></td>
 												<td><?=$value['enable']?></td>
-												<td><a href="/doc/edit/?bookid=<?=$value['bookid']?>&nodeid=<?=$value['nodeid']?>">编辑</a></td>
 											</tr>
                                             
                                             <!-- child -->
@@ -136,11 +134,10 @@
                                             ?>
                                             
                                             <tr>
-												<td>&nbsp;&nbsp;&nbsp;&nbsp; - <?=$v['bookid']?>.<?=$v['nodeid']?></td>
-												<td>&nbsp;&nbsp;&nbsp;&nbsp;└──<font color="#666666"><?=$v['title']?></font></td>
+												<td>&nbsp;&nbsp;- <?=$v['bookid']?>.<?=$v['nodeid']?></td>
+												<td>&nbsp;&nbsp;&nbsp;&nbsp;└──<a class="suedit" href="/doc/edit/?bookid=<?=$v['bookid']?>&nodeid=<?=$v['nodeid']?>"><font color="#666666"><?=$v['title']?></font></a></td>
 												<td><?=$v['sort']?></td>
 												<td><?=$v['enable']?></td>
-												<td><a href="/doc/edit/?bookid=<?=$v['bookid']?>&nodeid=<?=$v['nodeid']?>">编辑</a></td>
 											</tr>
                                             
                                             
@@ -160,8 +157,32 @@
 										
 										</tbody>
 									</table>
-								
 								</div>
+                            <div class="col-sm-8">
+								<?php if($GET['bookid']){?>
+                                <h4><a href="/doc/edit/?bookid=<?=$GET['bookid']?>">添加新数据</a></h4>
+								<?php }?>
+                                	<!-- Table Model 2 -->
+									<strong></strong>
+                                    
+									<br><br>
+
+									<table class="table table-model-2 table-hover">
+										<thead>
+											<tr>
+												<th>内容</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+                                      
+                                        
+										
+										</tbody>
+									</table>
+                                    <div>asdfasdfsadf</div>
+                            </div>
+                                
 						</div>
 						
 					  </div>
@@ -229,6 +250,22 @@
 
 	<!-- JavaScripts initializations and stuff -->
 	<script src="/assets/js/xenon-custom.js"></script>
+	<script src="/A/CK_fill_bootstrap.js"></script>
+    
+				<script type="text/javascript">
+$(document).ready(function() {
+// put all your jQuery goodness in here.
+
+	$(".suedit").click(function(){
+		$.CKfill({
+			//rel:$(this).attr('rel'),
+			//width:'96%',
+		});
+	alert(1);
+	});
+});  
+</script>  
+
 
 </body>
 </html>
