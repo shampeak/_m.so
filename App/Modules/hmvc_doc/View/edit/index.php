@@ -89,13 +89,13 @@
                         ?>
                     </select>
                     
-                     <h3>类型 ： </h3>
+                     <!-- h3>类型 ： </h3>
                     <select name="type" class="form-control" id="sboxit-1">
                     <option value="con" <?php if('con' == $node['type']) echo 'selected="selected" '?>>markdown </option>
                     <option value="fun" <?php if('fun' == $node['type']) echo ' selected="selected" '?>>函数 </option>
                     <option value="cla" <?php if('cla' == $node['type']) echo ' selected="selected" '?>>类 </option>
                     <option value="tes" <?php if('tes' == $node['type']) echo ' selected="selected" '?>>测试 </option>
-                    </select>
+                    </select -->
                     
                     
                     

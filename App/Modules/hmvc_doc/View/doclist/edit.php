@@ -122,7 +122,7 @@
                                             
                                             <tr>
 												<td><?=$value['bookid']?>.<?=$value['nodeid']?></td>
-												<td><a class="suedit" href="/doc/edit/?bookid=<?=$value['bookid']?>&nodeid=<?=$value['nodeid']?>"><?=$value['title']?></a></td>
+												<td><a class="suedit" ref="/doc/doclist/show/?bookid=<?=$value['bookid']?>&nodeid=<?=$value['nodeid']?>"><?=$value['title']?></a></td>
 												<td><?=$value['sort']?></td>
 												<td><?=$value['enable']?></td>
 											</tr>
@@ -135,7 +135,7 @@
                                             
                                             <tr>
 												<td>&nbsp;&nbsp;- <?=$v['bookid']?>.<?=$v['nodeid']?></td>
-												<td>&nbsp;&nbsp;&nbsp;&nbsp;└──<a class="suedit" href="/doc/edit/?bookid=<?=$v['bookid']?>&nodeid=<?=$v['nodeid']?>"><font color="#666666"><?=$v['title']?></font></a></td>
+												<td>&nbsp;&nbsp;&nbsp;&nbsp;└──<a class="suedit" ref="/doc/doclist/show/?bookid=<?=$v['bookid']?>&nodeid=<?=$v['nodeid']?>"><font color="#666666"><?=$v['title']?></font></a></td>
 												<td><?=$v['sort']?></td>
 												<td><?=$v['enable']?></td>
 											</tr>
@@ -180,7 +180,7 @@
 										
 										</tbody>
 									</table>
-                                    <div>asdfasdfsadf</div>
+                                    <div id="ckshow">asdfasdfsadf</div>
                             </div>
                                 
 						</div>
@@ -235,17 +235,30 @@
 </div>
 	
 	
-	
+	<!-- Imported styles on this page -->
+	<link rel="stylesheet" href="/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+	<link rel="stylesheet" href="/assets/js/uikit/vendor/codemirror/codemirror.css">
+	<link rel="stylesheet" href="/assets/js/uikit/uikit.css">
+	<link rel="stylesheet" href="/assets/js/uikit/css/addons/uikit.almost-flat.addons.min.css">
 
-
-
-<!-- Bottom Scripts -->
+	<!-- Bottom Scripts -->
 	<script src="/assets/js/bootstrap.min.js"></script>
 	<script src="/assets/js/TweenMax.min.js"></script>
 	<script src="/assets/js/resizeable.js"></script>
 	<script src="/assets/js/joinable.js"></script>
 	<script src="/assets/js/xenon-api.js"></script>
 	<script src="/assets/js/xenon-toggles.js"></script>
+	<script src="/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
+	<script src="/assets/js/uikit/vendor/codemirror/codemirror.js"></script>
+	<script src="/assets/js/uikit/vendor/marked.js"></script>
+	<script src="/assets/js/uikit/js/uikit.min.js"></script>
+	<script src="/assets/js/uikit/js/addons/htmleditor.min.js"></script>
+	<script src="/assets/js/ckeditor/ckeditor.js"></script>
+	<script src="/assets/js/ckeditor/adapters/jquery.js"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->
@@ -257,11 +270,14 @@ $(document).ready(function() {
 // put all your jQuery goodness in here.
 
 	$(".suedit").click(function(){
+		var ref = $(this).attr('ref');
+		//alert(ref);
 		$.CKfill({
-			//rel:$(this).attr('rel'),
+			rel:ref,
+			tid:'ckshow'
 			//width:'96%',
 		});
-	alert(1);
+	
 	});
 });  
 </script>  

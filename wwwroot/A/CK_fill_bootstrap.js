@@ -23,21 +23,8 @@ jQuery.extend({
 		$('#'+option.diaid).hide();
 		$('.modal-backdrop').remove();
 	},
-	CK:function(option) {
-		//console.log(option);
-		var FI = function(option){
-			re = option.rel;
-			tag = re.replace('.','');
-			//console.log(tag);
-			//tag = tag.replaceAll('/','');
-			tag = tag.replace(/\//g,'')
-			tag = tag.replace('\\','');
-			tag = tag.replace('?','');
-			tag = tag.replace('&','');
-			tag = 'modal_tbtersgdore'+tag;
-			//console.log(tag);
-			return tag;
-		};
+	CKfill:function(option) {
+		console.log(option);
 		var htmlget = function(option){
 			options = {
 				url : option.rel,
@@ -47,30 +34,18 @@ jQuery.extend({
 			};
 			return $.ajax(options).responseText;
 		};
-
-		//====================================================================
-		tag = FI(option);
-		option.diaid = tag;
-		//====================================================================
-		$("#"+tag).remove()			//移除已经存在的
-		//====================================================================
 		
-		if(option.width !==undefined){
-			option.width = "style='width:"+option.width+";'";
-		}
-		htmlmode_b 	= '<div class="modal fade" id="'+tag+'"><div class="modal-dialog" '+option.width+'><div class="modal-content">';
-		htmlmode_e 	= '</div></div></div>';
-		html 		= htmlmode_b + htmlget(option) + htmlmode_e;
-		//====================================================================
-		$('body').append(html);
-		//====================================================================
+		html = htmlget(option)
+		$('#'+option.tid).html(html);
+		
+		
 		var JS = $("script[type='text/dialog']").html();
 		eval(JS);												//sytle
 		//option.backdrop = 'fade';								//先加载
 		
-		bootstrap_dialog = option;
+		//bootstrap_dialog = option;
 		//console.log(option_ck);
-		jQuery("#"+tag).modal('show', {backdrop: 'fade'});
+		//jQuery("#"+tag).modal('show', {backdrop: 'fade'});
 	},
 	
 
