@@ -28,7 +28,7 @@
       <file leaf-file-name="doclist.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-41.192307">
+            <state vertical-scroll-proportion="0.0">
               <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
               <folding />
             </state>
@@ -38,18 +38,38 @@
       <file leaf-file-name="doclist.edit.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
+            <state vertical-scroll-proportion="0.0">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doclist.show.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="doclist.show.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.show.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5714286">
-              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+            <state vertical-scroll-proportion="-20.115385">
+              <caret line="63" column="93" selection-start-line="63" selection-start-column="93" selection-end-line="63" selection-end-column="93" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Conf.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Conf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cimarkdown.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Lib/Cimarkdown.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45193508">
+              <caret line="1008" column="42" selection-start-line="1008" selection-start-column="42" selection-end-line="1008" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -58,7 +78,7 @@
       <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.346154">
+            <state vertical-scroll-proportion="0.0">
               <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="48" selection-end-column="17" />
               <folding />
             </state>
@@ -70,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wwwroot/Simple/Application/Web/BaseController.php" />
         <option value="$PROJECT_DIR$/wwwroot/sm.php" />
         <option value="$PROJECT_DIR$/Grace/Lib/Log.php" />
         <option value="$PROJECT_DIR$/Grace/GracePHP.class.php" />
@@ -121,6 +140,7 @@
         <option value="$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/edit.php" />
         <option value="$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.edit.php" />
         <option value="$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.show.php" />
+        <option value="$PROJECT_DIR$/App/Lib/Cimarkdown.class.php" />
       </list>
     </option>
   </component>
@@ -165,7 +185,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,8 +231,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="m.so" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="m.so" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,10 +312,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29273504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29647437" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -321,13 +359,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/App/Models/UserModel.model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-54.923077">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="94" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Grace/Lib/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5517242">
@@ -640,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Conf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35457706">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Conf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -656,7 +680,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-41.192307">
+        <state vertical-scroll-proportion="0.0">
           <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
           <folding />
         </state>
@@ -664,7 +688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.346154">
+        <state vertical-scroll-proportion="0.0">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="48" selection-end-column="17" />
           <folding />
         </state>
@@ -672,7 +696,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.615385">
+        <state vertical-scroll-proportion="0.0">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
@@ -680,8 +704,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Modules/hmvc_doc/Controller/doclist.show.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5714286">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        <state vertical-scroll-proportion="-20.115385">
+          <caret line="63" column="93" selection-start-line="63" selection-start-column="93" selection-end-line="63" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Lib/Cimarkdown.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45193508">
+          <caret line="1008" column="42" selection-start-line="1008" selection-start-column="42" selection-end-line="1008" selection-end-column="42" />
           <folding />
         </state>
       </provider>

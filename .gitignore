@@ -43,3 +43,11 @@ Temporary Items
 .apdisk
 .diea
 .svn
+phpMyAdmin
+
+# editplus
+*.bak
+
+
+
+
