@@ -3,8 +3,9 @@
  * https://github.com/shampeak/GracePhp
  */
 
-error_reporting(E_ALL ^ E_NOTICE);      //抑制错误
+
 include '../Grace/Application.php';
+error_reporting(E_ALL ^ E_NOTICE);      //抑制错误
 $config = [
             'APP_PATH'    => '../App/',
             'USE_SESSION' =>true,

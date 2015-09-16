@@ -2,8 +2,7 @@
 
 //只提供系列快捷函数
 include 'Common.php';
-define(GRACEROOT,__DIR__.'/');
-
+define('GRACEROOT',__DIR__.'/');
 
 /**
  * 总控类
