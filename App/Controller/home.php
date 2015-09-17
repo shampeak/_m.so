@@ -2,53 +2,46 @@
 
 class home extends BaseController {
 
-
-
-
-
-    //退出登陆
-    public function doSuper()
-    {
-//$rc = $this->db->getall("select * from testc");
-//$rc = $this->table->testc->getall();
-//$this->Model->Modeltest->say();
-echo 'asdf';
-
-//D(C());
-exit;
-
-        D($rc);
-
-
-        $this->display('',[
-            'title'=>'登陆',
-        ]);       //默认的index.php
-        exit;
-        //D($this->S);
-//        $this->model->UserModel->signout();
-//        $this->Redirect('/');
-    }
-
-
-
-
-
-
-
-
-
+//    //退出登陆
+//    public function doSuper()
+//    {
+////$rc = $this->db->getall("select * from testc");
+////$rc = $this->table->testc->getall();
+////$this->Model->Modeltest->say();
+//echo 'asdf';
+//
+////D(C());
+//exit;
+//
+//        D($rc);
+//
+//
+//        $this->display('',[
+//            'title'=>'登陆',
+//        ]);       //默认的index.php
+//        exit;
+//        //D($this->S);
+////        $this->model->UserModel->signout();
+////        $this->Redirect('/');
+//    }
 
 
     //根据情况进行跳转
     public function doIndex(){
+//        \G\Geter::getInstance()->show();                //调试
 
-        if(!$this->user->islogin()){
-            $this->Redirect('/home/login');
-//        }elseif($this->user->islock()){
-//            $this->Redirect('/s/home/locked');
-        }else{
-            $this->Redirect('/s/');
-        }
+
+        D($this->G('debug.show'));
+        D($this->G('user.md'));
+        exit;
+
+        $str =         $this->G('use123r.getlist.3');
+        echo $str;
+        $str =         $this->G('user.info.3');
+        echo $str;
+      // D($str);
+        exit;
+
     }
 
     //登陆

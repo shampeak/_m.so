@@ -3,6 +3,7 @@
  * 调用
 入口程序
  * */
+namespace Seter;
 
 define('FAST_PATH',__DIR__);
 
@@ -14,9 +15,10 @@ include(__DIR__ . '/Function/Fun.php');
 !defined('ISGET')   && define('ISGET',false);
 !defined('ISPOST')  && define('ISPOST',false);
 !defined('BTIME')  && define('BTIME', \Sham::T());
-
 include 'Core/Base.php';                    //基类
 include 'Seter.php';                        //基类
+\Seter\Seter::registerAutoloader();     //PSR-0
+
 
 /**
  * 目录设定

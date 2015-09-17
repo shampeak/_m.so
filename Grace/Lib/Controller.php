@@ -17,6 +17,7 @@ class Controller {
       public $rules;
       public $headers;
       public $params;
+      public $Geter;
 
       //
       public $data = [];
@@ -26,6 +27,8 @@ class Controller {
        * 构造函数，初始化视图实例，调用hook
        */
       public function __construct(){
+            $this->Geter = \G\Geter::getInstance();
+
             $this->router     = C('Router');
             $this->env        = C('env');
             $this->app        = C('app');
@@ -72,6 +75,9 @@ class Controller {
             $this->_view = new View();
       }
 
+      public function G($str = ''){       //OK,获取到固化数据的路由字段
+            return $this->Geter->get($str);
+      }
 
       /**
        * 前置hook

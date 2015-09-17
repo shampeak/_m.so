@@ -9,6 +9,16 @@
 $config = [
     'RDBC'=>'',
     'debug'=>true,
+    'debug'=>true,
+    //对现有的路由进行映射
+    'Geter'=>[
+        'Base'=> '../G/',
+        'FW' => [
+            'user',
+            'sys',
+        ],
+    ],
+
 //    'route' =>[
 //        'style' => 'mix',       //混合模式  //path //query
 //    ],

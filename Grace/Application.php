@@ -103,8 +103,8 @@ class Application {
 
 
             //加载Seter
-          includeIfExist(C('app')['APP_PATH'].'/Seter/I.php');
           spl_autoload_register(array('Application', 'autoload_controller'));              //psr-0
+          includeIfExist(C('app')['APP_PATH'].'/Seter/I.php');
           self::DoController();
 exit;
 

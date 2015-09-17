@@ -18,6 +18,10 @@ class BaseController extends Controller{
         parent::__construct();
     }
 
+    public function G($str = ''){       //OK,获取到固化数据的路由字段
+        return $this->Geter->get($str);
+    }
+
     /**
      * 前置hook
      */

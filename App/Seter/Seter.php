@@ -193,9 +193,6 @@ class Seter extends \Seter\Core\Base
     {
         spl_autoload_register(__NAMESPACE__ . "\\Seter::autoload");
     }
-
-
 }
 
-\Seter\Seter::registerAutoloader();     //PSR-0
 

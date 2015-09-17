@@ -40,6 +40,7 @@ class home extends BaseController {
      * 综合页
      */
     public function doIndex(){
+
         $params = $this->params['bookid']?intval($this->params['bookid']):1;
 
         //计算        运算

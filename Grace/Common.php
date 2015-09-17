@@ -51,6 +51,9 @@
 //echo '<br>DOMAIN : '.DOMAIN;
 //echo '<br>PATH : '.PATH;
 
+    function Ge($str = ''){
+        \G\Geter::getInstance()->get($str);
+    }
 
 /**
  * @param $filename
@@ -271,7 +274,8 @@ function error404()
  */
 function errormsg($msg = '')
 {
-    include C('error_page_msg');
+    include C('app')['APP_PATH'].C('app')['error_page_msg'];
+    //include C('error_page_msg');
     exit;
 }
 
