@@ -23,16 +23,10 @@
 
 <div class="mobile-nav">
 	  <div class="m-pikabu-sidebar m-pikabu-left">
-			<a href="SeterDefault.php" class="close-panel icon-close"></a>
+			<a href="/doc/doclist/" class="close-panel icon-close"></a>
 			<nav id="mobile">
 				  <h4>Menu</h4>
 				  <ul>
-						<li>
-							  <a class="" href="/doc/">Home</a>
-						</li>
-						<li>
-							  <a class="" href="/doc/doclist/">编辑</a>
-						</li>
 						<?php foreach($booklist as $key=>$value){?>
 							  <li>
 									<a class="" href="?bookid=<?=$value['bookid']?>"><?=$value['bookname']?></a>
@@ -48,14 +42,8 @@
 
 	  <header>
 			<div class="wrapper-full">
-				  <a href="SeterDefault.php" class="logo"></a>
+				  <a href="/doc/doclist/" class="logo"></a>
 				  <ul>
-						<li>
-							  <a class="" href="/doc/">Home</a>
-						</li>
-						<li>
-							  <a class="" href="/doc/doclist/">编辑</a>
-						</li>
 						<?php foreach($booklist as $key=>$value){?>
 							  <li>
 									<a class="" href="?bookid=<?=$value['bookid']?>"><?=$value['bookname']?></a>

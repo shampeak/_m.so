@@ -9,6 +9,7 @@ class Mg
     public  function __construct()
     {
         $this->db= \Seter\Seter::getInstance()->db;
+        $this->table= \Seter\Seter::getInstance()->table;
     }
 
     public function show()

@@ -25,12 +25,6 @@ class Sys extends \G\Mg
         return 'user.getlist'.$parm;
     }
 
-/**
- * 辅助方法,开发用
- */
-
-
-
     /**
      * @return array
      * 手动配置

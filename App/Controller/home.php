@@ -31,7 +31,7 @@ class home extends BaseController {
 //        \G\Geter::getInstance()->show();                //调试
 
 
-        D($this->G('debug.show'));
+//        D($this->G('debug.show'));
         D($this->G('user.md'));
         exit;
 

@@ -1,6 +1,7 @@
 <?php
 /*
  *
+ * 内置对象db / table
  * */
 namespace G\Lib;
 !defined('FAST_PATH') && die('out of app');
@@ -12,7 +13,9 @@ class User extends \G\Mg
      * 控制器中调用 $str =         $this->G('user');
      */
     public function md(){
-        $rc =         $this->db->getall('select * from dy_user');
+
+        //$rc =         $this->db->getall('select * from dy_user');
+        $rc =         $this->table->dy_user->getall();
         D($rc);
     }
 
