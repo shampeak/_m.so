@@ -1,0 +1,23 @@
+{
+    "name": "fuelphp/event",
+    "type": "library",
+    "description": "Framework independent Event library.",
+	"keywords": ["event"],
+	"homepage": "https://github.com/fuelphp/event",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "FuelPHP Development Team",
+			"email": "team@fuelphp.com"
+		}
+	],
+	"require": {
+		"php": ">=5.4"
+	},
+	"require-dev": {
+		"codeception/codeception" : "~2.0"
+	},
+	"autoload": {
+		"psr-4": { "Fuel\\Event\\": "src/" }
+	}
+}

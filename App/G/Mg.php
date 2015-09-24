@@ -12,6 +12,9 @@ class Mg
         $this->table= \Seter\Seter::getInstance()->table;
     }
 
+    public function index()
+    {
+    }
     public function show()
     {
         $lib =  get_class_methods($this);            //所有的方法

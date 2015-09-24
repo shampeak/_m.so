@@ -92,15 +92,16 @@ class View {
 //      * @param array $data 传递给子模板的变量列表，key为变量名，value为变量值
 //      * @return void
 //      */
-//      public static function tplInclude($path, $data=array()){
-//            self::$tmpData = array(
-//                  'path' => C('APP_FULL_PATH') . 'View/' . $path . '.php',
-//                  'data' => $data,
-//            );
-//            unset($path);
-//            unset($data);
-//            extract(self::$tmpData['data']);
-//            include self::$tmpData['path'];
-//      }
+      public static function tplInclude($path, $data=array()){
+            //D(C());
+            self::$tmpData = array(
+                  'path' => C('Router')['Appbase'] . 'View/' . $path . '.php',
+                  'data' => $data,
+            );
+            unset($path);
+            unset($data);
+            extract(self::$tmpData['data']);
+            include self::$tmpData['path'];
+      }
 
 }

@@ -16,6 +16,7 @@ $config = [
         'doc'   => 'hmvc_doc',
         's'     => 'hmvc_s',
         'v'     => 'hmvc_v',
+        'man'     => 'hmvc_man',
     ],
 
     //控制器扩展

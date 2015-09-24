@@ -15,9 +15,19 @@ class Sys extends \G\Mg
 
     }
 
-    public function info($parm = '')
+    public function dbused()
     {
-        return  'user.info'.$parm;
+        $sql = "select table_name
+                from information_schema.tables
+                where table_schema='{$this->db->Config['database']}' and table_type='base table'";
+        $rc = $this->db->getcol($sql);
+        foreach($rc as $value){
+            $mc[] = [
+                'table' => $value,
+                'val'   => intval($this->table->$value->getcount())
+            ];
+        }
+        return $mc;
     }
 
     public function getlist($parm = '')
@@ -34,12 +44,11 @@ class Sys extends \G\Mg
     {
         return [
             'index'=>'',
-            'info'=>'$parm = ""',
+            'dbused'=>'返回数据库使用情况统计; 参数 :$parm = "null"',
             'getlist'=>'$parm = ""',
         ];
 
     }
 
 }
-
 

@@ -1,5 +1,4 @@
 <?php
-
 //检索数据库，看是否能找到想匹配的模拟结果输出
 $s = \Seter\Seter::getInstance();
 $router = C('router');

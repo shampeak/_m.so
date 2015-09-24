@@ -71,7 +71,6 @@ class Controller {
             $this->singleton('rbac', function ($c) {
                   return $this->S->rbac;
             });
-
             $this->_view = new View();
       }
 
@@ -93,10 +92,9 @@ class Controller {
        */
       protected function getaccessRules()
       {
-            $this->accessRules['Module']    = $this->router['Module'];
-            $this->accessRules['Controller']= $this->router['Controller'];
-            $this->accessRules['Action']    = $this->router['Action'];
-            //$this->accessRules['Isguest']   = 1;
+            $this->accessRules['Module']    = $this->router['method_modules'];
+            $this->accessRules['Controller']= $this->router['method_controller'];
+            $this->accessRules['Action']    = $this->router['method_action'];
             $this->accessRules['rules']     = RULES();
             $this->accessRules['behaviors'] =  $this->behaviors();
             return $this->accessRules;

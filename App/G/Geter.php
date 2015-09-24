@@ -2,31 +2,25 @@
 
 namespace G;
 !defined('FAST_PATH') && die('out of app');
-
 /*
  * 配置 \seter\config\default\Geter
- *
  * 数据持久化
  * 可以在中间加入数据缓存层
  * 这样来减少代码的工作量
  *
  * 系统方法包括
  * 类名检查
- *
- *
- *
  * 相关Seter 下config 设置
 \G\Geter::getInstance()->show();                //调试
-\G\Geter::getInstance()->display();                //调试
+\G\Geter::getInstance()->display();             //调试
 
-        D($this->G('debug.display'));       //调试
-        D($this->G('debug.show'));          //调试
-        D($this->G('user.show'));           //调试
+D($this->G('debug.display'));       //调试
+D($this->G('debug.show'));          //调试
+D($this->G('user.show'));           //调试
 
 Error::Geter is not permit empty!!
 Error::out of Geter limit!
 Error::out of Geter Method limit!
-
  * */
 
 class Geter
@@ -45,10 +39,6 @@ class Geter
         return self::$instance;
     }
 
-//    public function run(){
-//        D($this->Config);
-//    }
-
     public function getClass($m)
     {
         $classname = '\\G\\Lib\\'.ucfirst($m);
@@ -56,27 +46,29 @@ class Geter
         return $mo;
     }
 
-    public function get($key)
+    public function get($key='')
     {
         if($key == 'debug.show')        return $this->show();
         if($key == 'debug.display')     return $this->display();
 
         if(!$key)errormsg('Error::Geter is not permit empty!!');
+
         $mc = explode('.',$key);
         $c = $mc[0]?:'';
         $a = $mc[1]?:'index';
         $p = $mc[2]?:'';
         //===========================================================
         //范围
-        $fw = $this->Config['FW'];
+        $fw = $this->Config['FW']?:[];
         if(!in_array($c,$fw))errormsg('Error::out of Geter limit!');        //超出范围
         //===========================================================
         $class = $this->getClass($c);
         //===========================================================
         $methodfw = $class->show();
-        array_push($methodfw,'show','ds');
+
+        array_push($methodfw,'show','ds','index');
         //===========================================================
-        if(!in_array($a,$methodfw))errormsg('Error::out of Geter Method limit!');        //超出范围
+        if(!in_array($a,$methodfw)) errormsg('Error::out of Geter Method limit!');        //超出范围
         return $class->$a($p);
     }
 

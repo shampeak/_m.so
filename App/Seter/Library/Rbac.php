@@ -172,12 +172,6 @@ class Rbac{
 //        }
         return $this;
     }
-//
-//    public function Bmarch_do($rulesone)
-//    {
-//        //rules文件里面的配置
-//        return false;
-//    }
 
 }
 

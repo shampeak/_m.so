@@ -1,7 +1,6 @@
 <?php
 
 //hook
-
 class BaseController extends Controller{
 
     public function __construct()
@@ -10,6 +9,9 @@ class BaseController extends Controller{
     }
 
     public function _init(){
+
+        echo '--------------------';
+
         header("Content-Type:text/html; charset=utf-8");
         $this->model->logc->L();        //开始执行的时候 insert log
         //+--------------------------------------------------

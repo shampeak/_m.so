@@ -119,6 +119,7 @@ class ConfigManager
     public function AppDefaultConfig(){
         return [
             'APP_PATH'  =>    '../App/',
+            //'APP_BASE_PATH'  =>    '../App/',
             'GRACE_PATH'=>      '../Grace/',
             'WDS'               => DIRECTORY_SEPARATOR,
             'CONF_FILE'         => 'Conf.php',

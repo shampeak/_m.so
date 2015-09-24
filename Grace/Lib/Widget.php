@@ -29,7 +29,9 @@ class Widget {
      * 处理逻辑
      * @param mixed $data 参数
      */
-    public function invoke($data){}
+    public function invoke($data){
+
+    }
 
     /**
      * 渲染模板

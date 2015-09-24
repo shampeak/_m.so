@@ -18,12 +18,14 @@ class Application {
             //监测控制器文件是否存在
             //监测控制器是否存在
 
-            $router = C('Router');
-            $app = C('app');
+            $router     = C('Router');
+            $app        = C('app');
+
 
             //回溯地址
             $hspath = $app['APP_PATH'];
-            //控制器地址
+
+            //控制器地址 $router['Appbase']
             if($router['method_modules']){
                   $basepath = $app['APP_PATH'].'Modules/'.$app['modulelist'][$router['method_modules']].'/';
             }else{
@@ -43,6 +45,7 @@ class Application {
                   $controllerfile = $basepath.'Controller/'.$router['method_controller'].'.php';
                   includeIfExist($controllerfile);
             }
+
 
             //判断控制器是否存在
             if(!class_exists($router['method_controller'])){
@@ -75,7 +78,6 @@ class Application {
             $controller->$method($params);  //另一种方式执行
 
             exit;
-
       }
 
     public static function run($entrance){
@@ -93,6 +95,14 @@ class Application {
            */
           Router::getInstance()->load();        //路由信息 D(C('Router'));
 
+
+//          if($router['method_modules']){
+//                $basepath = $app['APP_PATH'].'Modules/'.$app['modulelist'][$router['method_modules']].'/';
+//          }else{
+//                $basepath = $hspath;
+//          }
+
+
           Bootstrap::init();              //初始化执行
           /**
            * 对系统信息运算完毕,准备转交控制权
@@ -101,11 +111,19 @@ class Application {
 //app->            [APP_PATH] => ../App/
 //               [GRACE_PATH] => ../Grace/
 
-
             //加载Seter
           spl_autoload_register(array('Application', 'autoload_controller'));              //psr-0
           includeIfExist(C('app')['APP_PATH'].'/Seter/I.php');
           self::DoController();
+
+
+
+
+
+
+
+
+
 exit;
 
 

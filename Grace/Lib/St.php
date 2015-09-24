@@ -23,85 +23,86 @@
 */
 class St{
 
-public static $json = [];
-public static $codelist = [];
+      public static $json = [];
+      public static $codelist = [];
 
 
-public static function __ini()
-{
-self::$codelist = self::DefaultCoderes();
-}
-
-public static function DefaultCoderes()
-{
-return [
-'0'     => 'ini',
-'200'   => '操作成功',
-];
-}
-
-public static function Getcodelist($list = [])
-{
-foreach($list as $key=>$value){
-self::$codelist[$key] = $value;
-}
-}
-//    +-----------------------------------------------------------+
-//    +-----------------------------------------------------------+
-
-//状态操作
-public static function jsoncode($code = 0)
-{
-self::$json = [
-'code'  => $code,
-'msg'   => self::$codelist[$code]
-];
-return true;
-}
-
-
-//结果输出修饰
-//返回操作结果    或者      给结果赋值
-public static function jsonres($data = '')
-{
-if(!empty($data))  self::$json['data'] = $data;
-return self::$json['data'];
-}
-
-//返回json数组
-public static function json()
-{
-return self::$json;
-}
-
-//返回json串
-public static function AjaxReturn()
-{
-echo json_encode(self::$json);
-exit;
-}
-
-//返回操作bool
-public static function bool()
-{
-//        return self::$json['code'];
-return intval(self::$json['code']>0)?true:false;
-exit;
-}
-
-//简化的方法
-public static function J($code =0,$msg= '',$data = [])
-{
-
-self::$json['code'] = $code;
-if($msg) self::$json['msg']  = $msg;
-if($data) self::$json['data'] = $data;
-echo json_encode(self::$json);
-exit;
-}
-      public static function DIS()
-      {ECHO '---';
-
+      public static function __ini()
+      {
+            self::$codelist = self::DefaultCoderes();
       }
 
-}
+      public static function DefaultCoderes()
+      {
+            return [
+                  '0'     => 'ini',
+                  '200'   => '操作成功',
+                  ];
+      }
+
+      public static function Getcodelist($list = [])
+      {
+            foreach($list as $key=>$value){
+                  self::$codelist[$key] = $value;
+            }
+      }
+      //    +-----------------------------------------------------------+
+      //    +-----------------------------------------------------------+
+
+      //状态操作
+      public static function jsoncode($code = 0)
+      {
+            self::$json = [
+                  'code'  => $code,
+                  'msg'   => self::$codelist[$code]
+            ];
+            return true;
+      }
+
+
+      //结果输出修饰
+      //返回操作结果    或者      给结果赋值
+      public static function jsonres($data = '')
+      {
+            if(!empty($data))  self::$json['data'] = $data;
+            return self::$json['data'];
+      }
+
+      //返回json数组
+      public static function json()
+      {
+            return self::$json;
+      }
+
+      //返回json串
+      public static function AjaxReturn()
+      {
+            echo json_encode(self::$json);
+            exit;
+      }
+
+      //返回操作bool
+      public static function bool()
+      {
+            //        return self::$json['code'];
+            return intval(self::$json['code']>0)?true:false;
+            exit;
+      }
+
+      //简化的方法
+      public static function J($code =0,$msg= '',$data = [])
+      {
+
+            self::$json['code'] = $code;
+            if($msg) self::$json['msg']  = $msg;
+            if($data) self::$json['data'] = $data;
+            echo json_encode(self::$json);
+            exit;
+      }
+
+      public static function DIS()
+            {ECHO '---';
+
+            }
+
+      }

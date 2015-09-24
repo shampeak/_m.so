@@ -263,7 +263,7 @@ function error404()
 {
     header('HTTP/1.1 404 Not Found');
     header("status: 404 Not Found");
-    include C('app')['APP_PATH'].C('app')['error_page_404'];
+    include C('Router')['Appbase'].C('app')['error_page_404'];
     exit;
 }
 
@@ -274,7 +274,7 @@ function error404()
  */
 function errormsg($msg = '')
 {
-    include C('app')['APP_PATH'].C('app')['error_page_msg'];
+    include C('Router')['Appbase'].C('app')['error_page_msg'];
     //include C('error_page_msg');
     exit;
 }
@@ -326,11 +326,11 @@ function GetIP(){
 
 function RULES(){
     $rules = $rules_ = [];
-    if(file_exists(C('BASE_FULL_PATH').'Rules.php')){
-        $rules = include C('BASE_FULL_PATH').'Rules.php';
+    if(file_exists(C('app')['APP_PATH'].'Rules.php')){
+        $rules = include C('app')['APP_PATH'].'Rules.php';
     }
-    if(!empty(C('router')['Module'])){
-        $rulepath =  C('APP_FULL_PATH').'Rules.php';
+    if(!empty(C('Router')['method_modules'])){
+        $rulepath =  C('Router')['Appbase'].'Rules.php';
         if(file_exists($rulepath)){
             $rules_ = include $rulepath;
         }

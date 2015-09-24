@@ -80,6 +80,12 @@ class Router
         if($router['methodtype'] && $router['methodtype'] != 'GET')             $router['tpl'] .= '_'.$router['methodtype'];
 
 
+          if($router['method_modules']){
+              $router['Appbase'] = C('app')['APP_PATH'].'Modules/'.C('app')['modulelist'][$router['method_modules']].'/';
+          }else{
+              $router['Appbase'] = C('app')['APP_PATH'];
+          }
+
         C('Router',$router);
     }
 
