@@ -12,16 +12,11 @@ class User extends \G\Mg
     /**
      * 控制器中调用 $str =         $this->G('user');
      */
-    public function md(){
 
-        //$rc =         $this->db->getall('select * from dy_user');
-        $rc =         $this->table->dy_user->getall();
-        D($rc);
-    }
-
-    public function info($parm = '')
+    public function info($id = '')
     {
-        return  'user.info'.$parm;
+        echo $id;
+        return $res;
     }
 
     public function getlist($parm = '')
@@ -29,9 +24,9 @@ class User extends \G\Mg
         return 'user.getlist'.$parm;
     }
 
-/**
- * 辅助方法,开发用
- */
+    /**
+     * 辅助方法,开发用
+     */
 
     public function show()
     {

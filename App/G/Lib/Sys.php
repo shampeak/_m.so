@@ -44,7 +44,7 @@ class Sys extends \G\Mg
     {
         return [
             'index'=>'',
-            'dbused'=>'返回数据库使用情况统计; 参数 :$parm = "null"',
+            'dbused'=>'返回数据库使用情况统计; 参数无',
             'getlist'=>'$parm = ""',
         ];
 
