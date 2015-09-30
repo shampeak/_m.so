@@ -11,18 +11,18 @@ class home extends BaseController {
      * 综合页
      */
     public function doIndex(){
-            $this->G('user.info.1');
+//            $this->G('user.info.1');
+//
+//
 
 
 
 
 
-
-
-//        $this->display('',[
-//            'title' => '仪表盘',
-//            'dis'   => '显示系统的使用情况，和数据情况',
-//        ]);
+        $this->display('',[
+            'title' => '仪表盘',
+            'dis'   => '显示系统的使用情况，和数据情况',
+        ]);
     }
 
     public function doDashboard(){

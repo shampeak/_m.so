@@ -1,8 +1,8 @@
 <?php
 //检索数据库，看是否能找到想匹配的模拟结果输出
 $s = \Seter\Seter::getInstance();
-$router = C('router');
-$chr = $router['Controller'].'/'.$router['Action'];
+$router = C('Router');
+$chr = $router['method_controller'].'/'.$router['method_action'];
 //查询数据库
 $where = "api = '$chr'";
 $row = $s->table->g_userapi->where($where)->getrow();
