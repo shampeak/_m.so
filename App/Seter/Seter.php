@@ -52,6 +52,7 @@ class Seter extends \Seter\Core\Base
         $this->singleton('sys', function ($c) {
             return new \Seter\Core\Sys();
         });
+
         $this->singleton('error', function ($c) {
             return new \Seter\Core\Error();
         });

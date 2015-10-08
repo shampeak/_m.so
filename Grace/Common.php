@@ -52,7 +52,7 @@
 //echo '<br>PATH : '.PATH;
 
     function Ge($str = ''){
-        \G\Geter::getInstance()->get($str);
+        return \G\Geter::getInstance()->get($str);
     }
 
 /**

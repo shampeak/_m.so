@@ -48,6 +48,12 @@ $config = [
             'parm'=>'',
         ],
         [
+            'classname'=>'gpdo',
+            'class'=>'\Seter\Library\Gpdo',
+            'parm'=>'',
+        ],
+
+        [
             'classname'=>'table',
             'class'=>'\Seter\Library\Table',
             'parm'=>'',
