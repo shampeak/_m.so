@@ -1,5 +1,4 @@
-<?php
-//if ( ! defined('SHAM_PATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('SHAM_PATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 |  SETTINGS
@@ -10,15 +9,27 @@
 $config = [
     'RDBC'=>'',
     'debug'=>true,
-    //对现有的路由进行映射
-    'Geter'=>[
-        'Base'=> '../G/',
-        'FW' => [
-            'user',
-            'sys',
-        ],
-    ],
-
+//    'route' =>[
+//        'style' => 'mix',       //混合模式  //path //query
+//    ],
+//    'mysql'=>[
+//        'default' =>[
+//            "hostname"  =>  '127.0.0.1',
+//            "username"  =>  'ns',
+//            "password"  =>  'nsgd012003',
+//            "database"  =>  'ns',
+//            "charset"   =>  'utf8',
+//            "pconnect"  =>  '0',
+//            "quiet"     =>  '0'
+//        ],
+//    ],
+//    'mongodb'=>[
+//        'user'		=> 'sa',
+//        'pwd'		=> 'sa012003',
+//        'host'		=> '127.0.0.1',
+//        'port'		=> '27017',
+//        'database'	=> 'v1',
+//    ],
     //依赖注入的组件
     'obj'=>[
         [
@@ -26,12 +37,6 @@ $config = [
             'class'=>'\Seter\Library\SDb',
             'parm'=>'',
         ],
-        [
-            'classname'=>'gpdo',
-            'class'=>'\Seter\Library\Gpdo',
-            'parm'=>'',
-        ],
-
         [
             'classname'=>'table',
             'class'=>'\Seter\Library\Table',

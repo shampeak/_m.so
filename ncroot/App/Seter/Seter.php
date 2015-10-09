@@ -11,6 +11,7 @@ namespace Seter;
 
 class Seter extends \Seter\Core\Base
 {
+    use Doini;
     /*
      * 单例调用
      * */
@@ -30,55 +31,6 @@ class Seter extends \Seter\Core\Base
 
     private  function __construct($items = array())
     {
-        //iniaction
-        $this->Config = include(FAST_PATH.'/Config/Default.php');
-
-        $this->singleton('sys', function ($c) {
-            return new \Seter\Core\Sys();
-        });
-
-        $this->singleton('error', function ($c) {
-            return new \Seter\Core\Error();
-        });
-        /**
-         * 系统函数和参数
-         */
-//        $this->singleton('ry', function ($c) {
-//            return new \Seter\Library\ServerAPI('8luwapkvufd1l','428XgqSUvxeAzr');
-//        });
-
-        //=================================================
-        /**
-         * 注入对象
-         */
-        foreach($this->Config['obj'] as $key=>$value){
-            $this->singleton($value['classname'], function () use ($key,$value){
-                //echo $this->Config['obj'][$key]['class'];
-                return new $this->Config['obj'][$key]['class'];
-            });
-        }
-    }
-
-    public static function run()
-    {
-        echo 'mvc模式执行';
-    }
-
-    //用于密码hash
-    public static function pwdhash($str='')
-    {
-        return $str;
-    }
-
-    /*hash函数
-     * */
-    public static function hash($str='')
-    {
-        if(empty($str)){
-            return '';
-        }else{
-            return md5($str);
-        }
     }
 
     public static function getInstance(){
@@ -161,7 +113,6 @@ class Seter extends \Seter\Core\Base
             require $fileName;
         }
     }
-
 
     /**
      * Register Slim's PSR-0 autoloader
