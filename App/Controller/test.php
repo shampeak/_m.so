@@ -8,34 +8,15 @@
 
 class test extends BaseController {
 
-    public function doMain($param)
+    public function doList()
     {
-
-        $this->display('',[]);
+        //页面能直接用的元素
+//        $m = $this->env;
+//        D($m);
+        $this->display('',[
+            'title'=>'登陆',
+        ]);       //默认的index.php
     }
-
-    public function doPage1($param)
-    {
-
-        $this->display('',[]);
-    }
-
-    public function doPage2($param)
-    {
-
-        $this->display('',[]);
-    }
-
-
-
-    public function doIndex_($param)
-    {
-        $rc = $this->db->getall("Select * from dy_user");
-        D($rc);
-        echo 123;
-        print_r($param);//另外一个
-    }
-
 
     public function doD()
     {
@@ -46,5 +27,27 @@ class test extends BaseController {
             'title'=>'登陆',
         ]);       //默认的index.php
     }
+
+
+    public function doMain($param)
+    {
+
+        $this->display('',[]);
+    }
+//
+
+//
+//
+//
+//    public function doIndex_($param)
+//    {
+//        $rc = $this->db->getall("Select * from dy_user");
+//        D($rc);
+//        echo 123;
+//        print_r($param);//另外一个
+//    }
+
+
+
 
 }

@@ -3,47 +3,22 @@
  * https://github.com/shampeak/GracePhp
  */
 
+/**
+ * 调试输出模块
+ */
+//调试用,生产环境需要删除需要删除
+define('FIREPHP',true);
+define('FIREPHP_INFO',true);
+define('FIREPHP_WARN',true);
+define('FIREPHP_ERROR',true);
+define('FIREPHP_TRACE',true);
+require_once('../Grace/FirePHPCore/fb.php');
+//调试end
 
 include '../Grace/Application.php';
 error_reporting(E_ALL ^ E_NOTICE);      //抑制错误
 $config = [
             'APP_PATH'    => '../App/',
-            'USE_SESSION' =>true,
-            'error_manage'=>'qwer',
-
-//            'GRACE_PATH'    => '../App/',       //有默认值,如果设置会覆盖默认值
-
-//      'APP_BASE'          => C('APP_PATH'),
-//      'WDS'               => DIRECTORY_SEPARATOR,
-//      'CONF_FILE'         => 'Conf.php',
-//      'default_timezone'  => 'PRC',
-//      'charset'           => 'utf-8',
-//      'CONF_FILE'         => 'Conf.php',
-//
-//      'error_page_404'    => C('APP_PATH').'error/error_404.php',
-//      'error_page_500'    => C('APP_PATH').'error/error_500.php',
-//      'error_page_msg'     => C('APP_PATH').'error/error_msg.php',
-//      'message_page_view' => C('APP_PATH').'error/error_view.php',
-//
-//      //相对路径
-//      'controller_folder' => 'Controller/',
-//      'model_folder'      => 'Models/',
-//      'view_folder'       => 'Views/',
-//      'library_folder'    => 'Lib/',
-//      //            'helper_folder'     => 'helper/',
-//      //相对路径
-//
-//      'default_controller'        => 'home',
-//      'default_controller_method' => 'index',
-//      'controller_method_prefix'  => 'do',
-//
-//      //扩展名
-//      'controller_file_subfix'    => '.php',
-//      'model_file_subfix'         => '.php',
-//      'view_file_subfix'          => '.php',
-//      'library_file_subfix'       => '.php',
-//      'helper_file_subfix'        => '.php',
-//      'debug' => true,
 ];
 
 Application::run($config);

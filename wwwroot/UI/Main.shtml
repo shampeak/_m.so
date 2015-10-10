@@ -8,9 +8,8 @@
 	<meta name="description" content="Xenon Boostrap Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title><?=$title?></title>
+	<title>Xenon - Blank Page - Static Sidebar</title>
 
-	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Arimo:400,700,400italic">
 	<link rel="stylesheet" href="/assets/css/fonts/linecons/css/linecons.css">
 	<link rel="stylesheet" href="/assets/css/fonts/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -30,3 +29,44 @@
 	
 	
 </head>
+<body class="page-body  user-info-navbar-skin-watermelon">
+
+	<!--#include file="Setting.shtml"-->
+	
+	<div class="page-container">
+    	<!--#include file="NavSitebar.shtml"-->
+    
+		
+		<div class="main-content">
+				<!--#include file="NavHead.shtml"-->	
+			
+            
+			<h3>Here starts everything&hellip;</h3>
+			<!--#include file="Foot.shtml"-->
+		</div>
+		
+			<!--#include file="Chat.shtml"-->
+		
+		
+		
+	</div>
+	
+	
+	
+
+
+
+	<!-- Bottom Scripts -->
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/TweenMax.min.js"></script>
+	<script src="/assets/js/resizeable.js"></script>
+	<script src="/assets/js/joinable.js"></script>
+	<script src="/assets/js/xenon-api.js"></script>
+	<script src="/assets/js/xenon-toggles.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="/assets/js/xenon-custom.js"></script>
+
+</body>
+</html>
