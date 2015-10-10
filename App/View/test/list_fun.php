@@ -22,7 +22,12 @@ View::tplInclude('Frame/header', $data);
 			<h3 id="layout-variants">
 				   Controller
 				  <br />
-				  <small>Controller的通用方法,对象,数据,视图等等!</small>
+				  <small>                    <a href="/test/list">LIST</a>
+<a href="/test/list_obj">对象</a>
+                    <a href="/test/list_ff">方法</a> 
+                    <a href="/test/list_fun">函数</a>
+                    <a href="/test/list_data">底层数据</a>
+              <a href="/test/list_config">配置文件</a>!</small>
 			</h3>
 
 
@@ -165,149 +170,6 @@ View::tplInclude('Frame/header', $data);
 
 
 			</div>
-
-			<div class="row">
-				  <div class="col-md-6">
-
-						<div class="panel panel-default">
-							  <div class="panel-heading">
-									<h3 class="panel-title">方法</h3>
-									<div class="panel-options">
-										  <a href="#" data-toggle="panel">
-												<span class="collapse-icon">&ndash;</span>
-												<span class="expand-icon">+</span>
-										  </a>
-										  <a href="#" data-toggle="remove">
-												&times;
-										  </a>
-									</div>
-							  </div>
-
-							  <div class="panel-body panel-border">
-									<div class="row">
-										  <div class="col-sm-12">
-
-												<!-- Table Model 2 -->
-												<strong>Table Model 2</strong>
-
-												<table class="table table-model-2 table-hover">
-													  <thead>
-													  <tr>
-															<th>#</th>
-															<th>对象</th>
-															<th>说明</th>
-															<th>对象</th>
-															<th>调用方法</th>
-
-													  </tr>
-													  </thead>
-
-													  <tbody>
-													  <tr>
-															<td>3</td>
-															<td>S</td>
-															<td>容器</td>
-															<td>$this->S</td>
-															<td>内含对象 : </td>
-													  </tr>
-													  <tr>
-															<td>1</td>
-															<td>view</td>
-															<td>视图</td>
-															<td>$this->_view</td>
-															<td>
-
-															</td>
-
-													  </tr>
-
-													  <tr>
-															<td>2</td>
-															<td>db</td>
-															<td>数据库</td>
-															<td>$this->db</td>
-															<td></td>
-													  </tr>
-
-													  </tbody>
-												</table>
-
-										  </div>
-									</div>
-							  </div>
-
-						</div>
-
-				  </div>
-
-				  <div class="col-md-6">
-
-						<div class="panel panel-default">
-							  <div class="panel-heading">
-									<h3 class="panel-title">可以重写的方法</h3>
-									<div class="panel-options">
-										  <a href="#" data-toggle="panel">
-												<span class="collapse-icon">&ndash;</span>
-												<span class="expand-icon">+</span>
-										  </a>
-										  <a href="#" data-toggle="remove">
-												&times;
-										  </a>
-									</div>
-							  </div>
-
-							  <div class="panel-body panel-border">
-									<div class="row">
-										  <div class="col-sm-12">
-
-												<!-- Table Model 2 -->
-												<strong>Table Model 2</strong>
-
-												<table class="table table-model-2 table-hover">
-													  <thead>
-													  <tr>
-															<th>#</th>
-															<th>对象</th>
-															<th>说明</th>
-													  </tr>
-													  </thead>
-
-													  <tbody>
-													  <tr>
-															<td>1</td>
-															<td>db</td>
-															<td></td>
-													  </tr>
-
-													  <tr>
-															<td>2</td>
-															<td>table</td>
-															<td></td>
-													  </tr>
-
-													  <tr>
-															<td>3</td>
-															<td>ST</td>
-															<td></td>
-													  </tr>
-													  </tbody>
-												</table>
-
-										  </div>
-
-									</div>
-							  </div>
-
-						</div>
-
-				  </div>
-
-
-
-			</div>
-
-
-
 
 			<!-- Main Footer -->
 			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->

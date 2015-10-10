@@ -22,7 +22,12 @@ View::tplInclude('Frame/header', $data);
 			<h3 id="layout-variants">
 				   Controller
 				  <br />
-				  <small>Controller的通用方法,对象,数据,视图等等!</small>
+				  <small>                    <a href="/test/list">LIST</a>
+<a href="/test/list_obj">对象</a>
+                    <a href="/test/list_ff">方法</a> 
+                    <a href="/test/list_fun">函数</a>
+                    <a href="/test/list_data">底层数据</a>
+                    <a href="/test/list_config">配置文件</a></small>
 			</h3>
 
 

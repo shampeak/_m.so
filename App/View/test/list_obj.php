@@ -22,14 +22,12 @@ View::tplInclude('Frame/header', $data);
 			<h3 id="layout-variants">
 				   Controller
 				  <br />
-				  <small>
-                    <a href="/test/list">LIST</a>
-                    <a href="/test/list_obj">对象</a>
+				  <small>                    <a href="/test/list">LIST</a>
+<a href="/test/list_obj">对象</a>
                     <a href="/test/list_ff">方法</a> 
                     <a href="/test/list_fun">函数</a>
                     <a href="/test/list_data">底层数据</a>
-                    <a href="/test/list_config">配置文件</a>
-                    </small>
+              <a href="/test/list_config">配置文件</a></small>
 			</h3>
 
 
@@ -38,7 +36,7 @@ View::tplInclude('Frame/header', $data);
 
 						<div class="panel panel-default">
 							  <div class="panel-heading">
-									<h3 class="panel-title">对象</h3>
+									<h3 class="panel-title">对象列表</h3>
 									<div class="panel-options">
 										  <a href="#" data-toggle="panel">
 												<span class="collapse-icon">&ndash;</span>
@@ -55,10 +53,9 @@ View::tplInclude('Frame/header', $data);
 										  <div class="col-sm-12">
 
 												<!-- Table Model 2 -->
-										  <strong>对象列表</strong>
-从这五个方面来对controller进行说明
-                                                                                  
-                                          <table class="table table-model-2 table-hover">
+												<strong>Table Model 2</strong>
+
+												<table class="table table-model-2 table-hover">
 													  <thead>
 													  <tr>
 															<th>#</th>
@@ -68,19 +65,19 @@ View::tplInclude('Frame/header', $data);
 															<th>调用方法</th>
 
 													  </tr>
-										    </thead>
+													  </thead>
 
 													  <tbody>
 													  <tr>
 															<td>3</td>
-															<td>对象 列举可以用的对象                                         </td>
+															<td>S</td>
 															<td>容器</td>
 															<td>$this->S</td>
 															<td>内含对象 : </td>
 													  </tr>
 													  <tr>
 															<td>1</td>
-															<td>方法                                        </td>
+															<td>view</td>
 															<td>视图</td>
 															<td>$this->_view</td>
 															<td>
@@ -90,29 +87,16 @@ View::tplInclude('Frame/header', $data);
 													  </tr>
 
 													  <tr>
-													    <td>&nbsp;</td>
-													    <td>函数</td>
-													    <td>&nbsp;</td>
-													    <td>&nbsp;</td>
-													    <td></td>
-													    </tr>
-													  <tr>
-													    <td>&nbsp;</td>
-													    <td> 底层数据                                        </td>
-													    <td>&nbsp;</td>
-													    <td>&nbsp;</td>
-													    <td></td>
-													    </tr>
-													  <tr>
-													    <td>&nbsp;</td>
-													    <td>配置文件</td>
-													    <td>&nbsp;</td>
-													    <td>&nbsp;</td>
-													    <td></td>
-													    </tr>
+															<td>2</td>
+															<td>db</td>
+															<td>数据库</td>
+															<td>$this->db</td>
+															<td></td>
+													  </tr>
 
 													  </tbody>
 												</table>
+
 										  </div>
 									</div>
 							  </div>
@@ -125,7 +109,7 @@ View::tplInclude('Frame/header', $data);
 
 						<div class="panel panel-default">
 							  <div class="panel-heading">
-									<h3 class="panel-title">通用的方法</h3>
+									<h3 class="panel-title">直接调用的对象</h3>
 									<div class="panel-options">
 										  <a href="#" data-toggle="panel">
 												<span class="collapse-icon">&ndash;</span>
@@ -142,7 +126,39 @@ View::tplInclude('Frame/header', $data);
 										  <div class="col-sm-12">
 
 												<!-- Table Model 2 -->
-										  <strong>Table Model 2</strong></div>
+												<strong>Table Model 2</strong>
+
+												<table class="table table-model-2 table-hover">
+													  <thead>
+													  <tr>
+															<th>#</th>
+															<th>对象</th>
+															<th>说明</th>
+													  </tr>
+													  </thead>
+
+													  <tbody>
+													  <tr>
+															<td>1</td>
+															<td>db</td>
+															<td></td>
+													  </tr>
+
+													  <tr>
+															<td>2</td>
+															<td>table</td>
+															<td></td>
+													  </tr>
+
+													  <tr>
+															<td>3</td>
+															<td>ST</td>
+															<td></td>
+													  </tr>
+													  </tbody>
+												</table>
+
+										  </div>
 
 									</div>
 							  </div>
@@ -154,11 +170,6 @@ View::tplInclude('Frame/header', $data);
 
 
 			</div>
-
-			
-
-
-
 
 			<!-- Main Footer -->
 			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
@@ -172,7 +183,8 @@ View::tplInclude('Frame/header', $data);
 						<div class="footer-text">
 							  &copy; 2014
 							  <strong>Xenon</strong>
-					    More Templates</div>
+							  More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+						</div>
 
 
 						<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->

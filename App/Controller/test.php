@@ -8,21 +8,53 @@
 
 class test extends BaseController {
 
+    public function doList_data()
+    {
+        $this->display('',[
+            'title'=>'底层数据',
+        ]);
+    }
+
+    public function doList_fun()
+    {
+        $this->display('',[
+            'title'=>'底层函数',
+        ]);
+    }
+
+    public function doList_obj()
+    {
+        $this->display('',[
+            'title'=>'对象',
+        ]);
+    }
+
+    public function doList_ff()
+    {
+        $this->display('',[
+            'title'=>'方法',
+        ]);
+    }
+
+    public function doList_config()
+    {
+        $this->display('',[
+            'title'=>'方法',
+        ]);
+    }
+
+
     public function doList()
     {
-        //页面能直接用的元素
-//        $m = $this->env;
-//        D($m);
         $this->display('',[
             'title'=>'登陆',
         ]);       //默认的index.php
     }
 
+//mark
+
     public function doD()
     {
-        //页面能直接用的元素
-//        $m = $this->env;
-//        D($m);
         $this->display('',[
             'title'=>'登陆',
         ]);       //默认的index.php
@@ -31,23 +63,7 @@ class test extends BaseController {
 
     public function doMain($param)
     {
-
         $this->display('',[]);
     }
-//
-
-//
-//
-//
-//    public function doIndex_($param)
-//    {
-//        $rc = $this->db->getall("Select * from dy_user");
-//        D($rc);
-//        echo 123;
-//        print_r($param);//另外一个
-//    }
-
-
-
 
 }
