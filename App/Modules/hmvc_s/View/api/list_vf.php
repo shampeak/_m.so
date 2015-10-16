@@ -74,7 +74,7 @@ $(".modal_ok").unbind( "click" );
 				cache:false
 			}).responseJSON;
 			var _getpost = res.getpost;
-			res.getpost = {};
+			//res.getpost = {};
 			console.log(_getpost);
 			//getpost = JSON.stringify(_getpost);
 			getpost = _getpost;//JSON.stringify(_getpost)

@@ -16,6 +16,7 @@ $config = [
         'FW' => [
             'user',
             'sys',
+            'Table',
         ],
     ],
 

@@ -65,14 +65,17 @@ class Logc extends Model
 
     public function systeminfo()
     {
-        $this->log['controller']= C('router')['Controller'];
-        $this->log['action']    = C('router')['Action'];
+//        $router = C('Router');
+//        $chr = $router['method_controller'].'/'.$router['method_action'];
+
+        $this->log['controller']= C('Router')['method_controller'];
+        $this->log['action']    = C('Router')['method_action'];
         $this->log['time']['timebe'] = BTIME;        //log
         $this->log['time']['timecu'] = time();        //log
         $this->log['_GET']      = $this->S->request->get;            //log
         $this->log['_POST']     = $this->S->request->post;        //log
         $this->log['_FILE']    = $_FILES;
-        $this->log['router']    = C('router');              //获得路由信息
+        $this->log['router']    = C('Router');              //获得路由信息
         return true;
     }
 

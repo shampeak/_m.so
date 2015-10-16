@@ -55,17 +55,18 @@ class Geter
 
         $mc = explode('.',$key);
         $c = $mc[0]?:'';
+        $c = ucfirst(strtolower($c)); //首字母大写
         $a = $mc[1]?:'index';
         $p = $mc[2]?:'';
         //===========================================================
         //范围
         $fw = $this->Config['FW']?:[];
         if(!in_array($c,$fw))errormsg('Error::out of Geter limit!');        //超出范围
+
         //===========================================================
         $class = $this->getClass($c);
         //===========================================================
         $methodfw = $class->show();
-
         array_push($methodfw,'show','ds','index');
         //===========================================================
         if(!in_array($a,$methodfw)) errormsg('Error::out of Geter Method limit!');        //超出范围

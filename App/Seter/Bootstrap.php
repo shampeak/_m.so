@@ -8,8 +8,6 @@ define('SETER_PATH',__DIR__);
 include SETER_PATH.'/Core/Base.php';                    //基类
 include SETER_PATH.'/Seter.php';                        //基类
 
-echo 1;
-
 \Seter\Seter::registerAutoloader();     //PSR-0
 
 $s = \Seter\Seter::getInstance();

@@ -6,31 +6,11 @@ View::tplInclude('Frame/header', ['title' => 'Welcome']);
 
 <body class="page-body">
 <!-- div class="page-loading-overlay"><div class="loader-2"></div></div -->
-	<?php
-$data = array(
-'title' => 'Welcome',  //设置title变量为Welcome
-);
-View::tplInclude('Frame/setting', $data);
-?>
-
-	
-		<?php
-$data = array(
-'title' => 'Welcome',  //设置title变量为Welcome
-);
-View::tplInclude('Frame/headbar', $data);
-?>
 
 	
 	
 	
 	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
-<?php
-$data = array(
-'title' => 'Welcome',  //设置title变量为Welcome
-);
-View::tplInclude('Frame/sitebar', $data);
-?>
 		
 
 		
@@ -41,24 +21,19 @@ View::tplInclude('Frame/sitebar', $data);
 <!-- path nav -->
 <div class="page-title">
     <div class="title-env">
-        <h1 class="title">用户管理</h1>
-        <p class="description">用户增删改查</p>
+        <h1 class="title">接口管理</h1>
+        <p class="description">接口管理</p>
     </div>
 
     <div class="breadcrumb-env">
         <ol class="breadcrumb bc-1">
         <li>
-            <a href="dashboard-1.html">
+            <a href="http://m.so/s">
             <i class="fa-home"></i>
             Home
             </a>
         </li>
-        <li>
-            <a href="tables-basic.html">Tables</a>
-        </li>
-        <li class="active">
-            <strong>Data Tables</strong>
-        </li>
+        <li>接口</li>
         </ol>
     </div>
 </div>        
@@ -209,7 +184,7 @@ OTHER</td>
 
 
 
-<div class="col-sm-12">
+<div class="col-sm-8">
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -276,13 +251,13 @@ OTHER</td>
 									<div class="tab-pane active" id="GET">
   
                                     
-<table class="table table-model-2 table-hover table-condensed table-striped" >
+<table class="table table-model-2 table-hover table-striped" >
 <?php
 foreach($rc as $key=>$value){
 if($value['type'] === 'GET'){
 ?>
         <tr>
-        <td><?=$value['v']?> <a href="javascript:;" class="apiview" relid="<?=$value['id']?>"><?=$value['api']?></a></td>
+        <td><?=$value['v']?> : <a href="javascript:;" class="apiview" relid="<?=$value['id']?>"><?=$value['api']?></a></td>
         <td><?=$value['name']?></td>
         <td><?=$value['sort']?></td>
         <td>
@@ -483,6 +458,53 @@ if($value['enable']){
    
    
     </div>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-4">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    <h3 class="panel-title">接口列表 </h3>
+
+        <div class="panel-options">
+            <a  onclick="showAjaxModal();" href="javascript:;">
+            <i class="linecons-cog"></i>
+            </a>
+            <a data-toggle="panel" href="#">
+            <span class="collapse-icon">–</span>
+            <span class="expand-icon">+</span>
+            </a>
+            <a data-toggle="reload" href="#">
+            <i class="fa-rotate-right"></i>
+            </a>
+            <a data-toggle="remove" href="#"> × </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+    
+<!--  sham begin -->
+<div class="search-results">
+						
+							<div class="tabs-vertical-env">
+							
+								23123
+							
+								
+							  <div class="tab-content">
+									
+									<!-- Sample Search Results Tab -->
+								  <div class="tab-pane active" id="GET"></div>
+</div>
+								
+			  </div>
+							
+						</div>
+<!--  sham end --></div>
 </div>
 </div>
 

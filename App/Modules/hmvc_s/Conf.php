@@ -10,6 +10,17 @@ $config = [
     'error_manage'=>'123',
 //    'application_folder' => dirname(__FILE__),
     //入口系统模块 - hmvc必须
+
+    'ActionExt'=>[
+        'po',       //post  有post
+        'ed',       //修改
+        'cf',       //修改状态
+        'de',       //删除
+        'json',     // json
+        'vf',       //显示
+    ],
+
+
 ];
 return $config;
 
