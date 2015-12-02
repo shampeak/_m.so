@@ -1,19 +1,9 @@
 <?php
-/**
- * https://github.com/shampeak/GracePhp
- */
-
-///**
-// * 调试输出模块
-// */
-////调试用,生产环境需要删除需要删除
-//define('FIREPHP',true);
-//define('FIREPHP_INFO',true);
-//define('FIREPHP_WARN',true);
-//define('FIREPHP_ERROR',true);
-//define('FIREPHP_TRACE',true);
-//require_once('../Grace/FirePHPCore/fb.php');
-////调试end
+//---------------------------------------------------
+//载入Sham\Wise
+include("../App/Helper.php");
+include("../vendor/autoload.php");
+//---------------------------------------------------
 
 include '../Grace/Application.php';
 error_reporting(E_ALL ^ E_NOTICE);      //抑制错误

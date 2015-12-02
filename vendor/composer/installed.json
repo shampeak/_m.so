@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/shampeak/wise.git",
-            "reference": "220f2f52fb1006f76997d7a61b9b7558cf4151fa"
+            "reference": "5a6b46aa3002f4efe473f02672c2455dc5ba4afb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/shampeak/wise/zipball/220f2f52fb1006f76997d7a61b9b7558cf4151fa",
-            "reference": "220f2f52fb1006f76997d7a61b9b7558cf4151fa",
+            "url": "https://api.github.com/repos/shampeak/wise/zipball/5a6b46aa3002f4efe473f02672c2455dc5ba4afb",
+            "reference": "5a6b46aa3002f4efe473f02672c2455dc5ba4afb",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.9"
         },
-        "time": "2015-12-02 04:14:30",
+        "time": "2015-12-02 06:08:47",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

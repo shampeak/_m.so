@@ -74,6 +74,16 @@ class Application {
             //扩展，对mothod 进行修改
             //call_user_func(array($controller,$method),$params);
 
+
+     /*
+     |------------------------------------------
+     | 添加信息进入配置信息
+     |-------------------------------------------
+     |
+     */
+      sc(C());
+
+
             if(method_exists($controller, '_init'))  $controller->_init();               //前置hook
             $controller->$method($params);  //另一种方式执行
 

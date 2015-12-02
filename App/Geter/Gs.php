@@ -6,7 +6,7 @@
  * Time: 19:47
  */
 
-namespace SApp\Geter;
+namespace App\Geter;
 
 
 class Gs
@@ -16,6 +16,7 @@ class Gs
       //=======================================
       public function demo($params = 0)
       {
+            echo '12';
             print_r($params);
             /*
              * 这里是对本数据的一些说明
