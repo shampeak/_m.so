@@ -261,8 +261,8 @@ function R($url, $time=0, $msg='') {
  */
 function error404()
 {
-    header('HTTP/1.1 404 Not Found');
-    header("status: 404 Not Found");
+    //header('HTTP/1.1 404 Not Found');
+    //header("status: 404 Not Found");
     include C('Router')['Appbase'].C('app')['error_page_404'];
     exit;
 }
