@@ -74,15 +74,39 @@ class Application {
             //扩展，对mothod 进行修改
             //call_user_func(array($controller,$method),$params);
 
+            /*
+            |-------------------------------------------
+            | 添加信息进入配置信息
+            |-------------------------------------------
+            |
+            */
+            sc(C());
+            sc('Struct',sapp('struct')->all());
 
-     /*
-     |------------------------------------------
-     | 添加信息进入配置信息
-     |-------------------------------------------
-     |
-     */
-      sc(C());
+            /*
+            |-------------------------------------------
+            | 建立信息bus
+            |-------------------------------------------
+            |
+            */
+            bus('modules',    $router['method_modules']);         //模块
+            bus('controller', $router['method_controller']);      //控制器
+            bus('method',     $router['method_action']);          //行为
+            bus('ext',        $router['method_action_ext']);      //行为扩展
+            bus('router',$router);        //路由
+            bus('user',       geter('user.info'));                //用户相关
+            bus('usergroup',  geter('user.group'));               //用户组信息
+            bus('userrulelib',geter('user.rulelib'));             //用户组权限信息
 
+            bus('menu',[]);               //后台菜单
+            bus('page',[]);               //页面信息
+            bus('rules',sc('rules'));     //rbacrules
+            bus('app',sc('app'));         //app相关
+            bus('get',$router['params']); //get
+            bus('post',$_POST);           //post
+            bus('cookies',$_COOKIE);      //cookies
+            bus('session',$_SESSION);     //session
+            bus('server',$_SERVER);       //server
 
             if(method_exists($controller, '_init'))  $controller->_init();               //前置hook
             $controller->$method($params);  //另一种方式执行
@@ -118,7 +142,7 @@ class Application {
            * 对系统信息运算完毕,准备转交控制权
            * 转交控制权
            */
-//app->            [APP_PATH] => ../App/
+//app->          [APP_PATH]   => ../App/
 //               [GRACE_PATH] => ../Grace/
 
             //加载Seter

@@ -22,6 +22,8 @@ return [
     'FileReflect'    => [
         'Db'    => '../App/Config/Db.php',         //Mysql对象的
         'Geter' => '../App/Config/Geter.php',      //cache对象的
+        'Struct' => '../App/Config/Struct.php',      //cache对象的
+        'Cookies' => '../App/Config/Cookies.php',      //cache对象的
 //        'Dbr'    => '../SApp/Config/Dbr.php',         //Mysql对象的
 //        'Cache' => '../SApp/Config/Cache.php',      //cache对象的
     ],
@@ -40,6 +42,8 @@ return [
         'Geter'     => Sham\Geter\Geter::class,
         'Req'     => Sham\Req\Req::class,
         'Bus'     => Sham\Bus\Bus::class,
+        'Struct'     => Sham\Struct\Struct::class,
+        'Cookies'     => Sham\Cookies\Cookies::class,
     ]
 
 

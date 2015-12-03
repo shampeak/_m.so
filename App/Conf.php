@@ -5,7 +5,7 @@
 
 $config = [
     'error_manage' => '',
-        'APP_PATH' => '../App213/',
+    'APP_PATH' => '../App213/',
     //缓存路径
     'Cacheroot' => C('APP_PATH').'cache/',
 
@@ -17,6 +17,7 @@ $config = [
         's'     => 'hmvc_s',
         'v'     => 'hmvc_v',
         'man'     => 'hmvc_man',
+        'admin'     => 'hmvc_admin',
     ],
 
     //控制器扩展
@@ -85,18 +86,11 @@ $config = [
             'ex','post','put','sotr',
         ],
         'ys' =>[
-
         ]
     ],
-
-
-
 
 ];
 
 unset($config['APP_PATH']);     //这两个路径的配置被终止
 
 return $config;
-
-
-//'APP_PATH' => '',     //这个不要设置，会不起作用

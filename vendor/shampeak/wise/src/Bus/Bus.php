@@ -18,8 +18,10 @@ use Sham\Set\Base;
     | $bus['router']     = 当前的路由信息 必须包括 [ 控制器.行为 ]
     | 其他的再自行定义
     |
-    |
-    |
+    |    显示出所有bus信息
+    |    print_r(bus()->all());
+    |    原子操作的路径
+    |    bus()->run('404');
     | 目标是用可以对bus 进行中间件的处理
     */
 
@@ -33,11 +35,16 @@ class Bus extends Base
       }
 
 
-
+      //=======================================
+      public function run($params = [])
+      {
+            echo 'pmmrs';
+      }
 
       //=======================================
       public function demo()
       {
+            echo 'bus demo!';
             /**
              *    获得对get post cookie file session 的支持
              */

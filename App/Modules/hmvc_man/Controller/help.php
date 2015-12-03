@@ -9,6 +9,9 @@ class help extends BaseController {
 
     public function doIndex(){
         //=======================================
+        $md = sapp('Struct')->zs();
+        print_r($md);
+        exit;
         $this->display('',[
             'res'  =>  "
         1 : DEMO [demo]
