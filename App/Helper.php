@@ -24,7 +24,7 @@ if (! function_exists('bus')) {
             $args = func_num_args();
             //1 : 返回配置信息
             if ($args == 0) {
-                  return sapp('bus');
+                  return sapp('bus')->all();
             }
             //2 : 有一个参数
             if ($args == 1) {
@@ -64,6 +64,13 @@ if (! function_exists('shamhash')) {
             //hash算法
             $key = "0000000000.$key.000000000.$salt";
             return md5($key);
+      }
+}
+
+if (! function_exists('ap')) {
+      function ap($parameters = [])
+      {
+            return Sham\Vo\Vo::getInstance()->make('ap');
       }
 }
 

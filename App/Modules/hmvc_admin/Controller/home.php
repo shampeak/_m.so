@@ -14,7 +14,7 @@ class home extends BaseController {
 //
 //
 //        print_r(geter('user.all'));
-        print_r(geter('group.id.1'));
+//        print_r(geter('group.id.1'));
 
 //        $userlogin = 'irones';
 //        $logintime = 11111111111;
@@ -26,11 +26,10 @@ class home extends BaseController {
 
         //print_r(geter('user.all'));
 
-        print_r(bus()->all());
-        bus()->run();
-
-
-
+        //ok
+        ap()->md([
+            'd'=>'md',
+        ])->go('v1');
     }
 
 }
