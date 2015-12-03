@@ -46,9 +46,7 @@ return [
         'Struct'     => Sham\Struct\Struct::class,
         'Cookies'     => Sham\Cookies\Cookies::class,
         'Ap'     => Sham\Ap\Ap::class,
-    ]
-
-
+    ],
 
 
 ];

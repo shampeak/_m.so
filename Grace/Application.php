@@ -92,6 +92,10 @@ class Application {
             bus('modules',    $router['method_modules']);         //模块
             bus('controller', $router['method_controller']);      //控制器
             bus('method',     $router['method_action']);          //行为
+
+            //添加Middleware 进入bus
+//          bus('Middleware', sc('Middleware'));                  //中间件定义
+
             bus('ext',        $router['method_action_ext']);      //行为扩展
             bus('router',$router);        //路由
             bus('user',       geter('user.info'));                //用户相关

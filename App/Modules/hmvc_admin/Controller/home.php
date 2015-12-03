@@ -22,8 +22,11 @@ class home extends BaseController {
 //        sapp('cookies')->set('userlogin',$userlogin);
 //        sapp('cookies')->set('logintime',$logintime);
 //        sapp('cookies')->set('sccheck',$sccheck);
-        //print_r(bus());
 
+//        print_r(bus());
+//        print_r(sc());
+        print_r(bus());
+exit;
         //print_r(geter('user.all'));
 
         //ok
