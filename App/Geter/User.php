@@ -72,7 +72,8 @@ class User
       //用户组的RBAC信息 -> 数据库中的rulelib
       public function rulelib()
       {
-            return bus('usergroup')['ruleLib']?:$this->group()['ruleLib']?:array();
+            $res = bus('usergroup')['ruleLib']?:$this->group()['ruleLib']?:array();
+            return $res;
       }
       /*
       |----------------------------------------------------
@@ -89,10 +90,11 @@ class User
             $sccheck    = sapp('Cookies')->get('sccheck');
             if(shamhash($userlogin,$logintime) == $sccheck){
                   //验证通过 返回数据
-                  return $userlogin;
+                  $res = $userlogin;
             }else{
-                  return null;
+                  $res = null;
             }
+            return $res;
       }
 
 
@@ -103,7 +105,8 @@ class User
                               WHERE `user`.userid = user_profile.userid
                               order by sort desc
                               ";
-            return sapp('db')->getall($sql);
+            $res = sapp('db')->getall($sql);
+            return $res;
       }
 
       //根据id返回用户
@@ -113,7 +116,8 @@ class User
                               WHERE `user`.userid = user_profile.userid
                               and `user`.userid = $userid
                               ";
-            return sapp('db')->getrow($sql);
+            $res = sapp('db')->getrow($sql);
+            return $res;
       }
 
       //根据login返回用户
@@ -123,10 +127,43 @@ class User
                               WHERE `user`.userid = user_profile.userid
                               and `user`.login = $userlogin
                               ";
-            return sapp('db')->getrow($sql);
+            $res = sapp('db')->getrow($sql);
+            return $res;
       }
 
 
 
-
 }
+
+/*
+mixed xcache_get(string name)
+bool xcache_set(string name, mixed value [, int ttl])
+bool xcache_isset(string name)
+bool xcache_unset(string name)
+bool xcache_unset_by_prefix(string prefix)
+    //低版本没有这个函数，使用之前要测试一下
+
+int xcache_inc(string name [, int value [, int ttl]])
+   //自增函数，value为步长，如果没有初始化，则默认为零，ttl为过期时间
+
+int xcache_dec(string name [, int value [, int ttl]])
+   //自减函数，同上
+
+
+    注意：xcache不能存放对象、资源等内容。
+
+2、管理函数：
+int xcache_count(int type)
+
+
+
+array xcache_list(int type, int id)
+
+
+
+void xcache_clear_cache(int type, int id)
+string xcache_coredump(int op_type)
+
+
+
+*/

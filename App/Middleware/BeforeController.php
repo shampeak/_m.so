@@ -2,26 +2,30 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2015/12/1 0001
- * Time: 19:47
+ * Date: 2015/12/4 0004
+ * Time: 9:53
  */
 
 namespace App\Middleware;
 
-
-class User
+class BeforeController
 {
 
-      //鏍规嵁login杩斿洖鐢ㄦ埛
+      public function handle($request, Closure $next)
+      {
+            // Perform action
+
+            return $next($request);
+      }
+
+
+      //根据login返回用户
       public function login($userlogin = '')
       {
-
             if ($request->input('age') <= 200) {
                   return redirect('home');
             }
-
             return $next($request);
-
             return $test;
       }
 
@@ -30,7 +34,10 @@ class User
 
 }
 
-//鍓嶇疆鎿嶄綔
+
+/*
+//执行一些前置操作
+
 class BeforeMiddleware
 {
       public function handle($request, Closure $next)
@@ -41,7 +48,8 @@ class BeforeMiddleware
       }
 }
 
-//鍚庣疆鎿嶄綔
+//执行一些后置操作
+
 class AfterMiddleware
 {
       public function handle($request, Closure $next)
@@ -53,3 +61,4 @@ class AfterMiddleware
             return $response;
       }
 }
+*/

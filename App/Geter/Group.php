@@ -21,28 +21,42 @@ class Group
       |
       */
 
+      private $res = array(); //数据结果集
+
       //返回所有的用户
       public function all()
       {
+
             $sql = "select * from user_group order by sort desc";
-            return sapp('db')->getall($sql);
+            $this->res = sapp('db')->getall($sql);
+            return $this->res;
       }
 
       //根据id返回用户
       public function id($groupid = 0)
       {
-            $sql =     "select * from user_group WHERE groupId = $groupid";
+            $sql = "select * from user_group WHERE groupId = $groupid";
             return sapp('db')->getrow($sql);
       }
 
       //根据login返回用户
       public function chr($groupchr = '')
       {
-            $sql =     "select * from user_group WHERE groupchr = $groupchr";
+            $sql = "select * from user_group WHERE groupchr = $groupchr";
             return sapp('db')->getrow($sql);
       }
 
+      public function iscache(){
 
+      }
+
+      public function setcache(){
+
+      }
+
+      public function getcache(){
+
+      }
 
 
 }

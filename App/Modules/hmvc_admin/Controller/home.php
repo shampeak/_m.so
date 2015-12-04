@@ -25,8 +25,57 @@ class home extends BaseController {
 
 //        print_r(bus());
 //        print_r(sc());
-        print_r(bus());
-exit;
+
+         /*
+         |----------------------------------------------------------
+         | //三段参数
+         | //1 : sc 系统配置的 config + struct + 原先的C()
+         | //2 : vc 对象配置信息
+         | //3 : bus 信息bus 包括
+         | 值:
+         | modules
+         | controller
+         | method
+         | ext
+         |
+         | 数据仓库
+         | router =>    [
+                              [method_modules]  => admin
+                              [method_controller] => home
+                              [method_action]   => index
+                              [method_action_ext] =>
+                              [methodtype]      => GET
+                              [ActionPrefix]    => do
+                              [param]           =>
+                              [params]          => Array()
+                              [Action]          => doIndex
+                              [ActionExt]       => doIndex
+                              [tpl]             => index
+                              [Appbase]         => ../App/Modules/hmvc_admin/
+                        ]
+         |
+         | [user]       => Array()
+         | [usergroup]  => Array()
+         | [userrulelib]=> Array()
+         | [menu]       => Array()
+         | [page]       => Array()
+         | [rules]      => Array()
+         | [app]        => Array()
+         | [req]        =>    [
+                                    [get]       => Array()
+                                    [post]      => Array()
+                                    [cookies]   => Array()
+                                    [session]   => Array()
+                                    [server]    => Array()
+
+                              ]
+         |
+         | print_r(bus());
+         | ----------------------------------------------------------
+         */
+
+
+          exit;
         //print_r(geter('user.all'));
 
         //ok

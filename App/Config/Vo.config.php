@@ -25,6 +25,7 @@ return [
         'Struct'    => '../App/Config/Struct.php',      //cache对象的
         'Cookies'   => '../App/Config/Cookies.php',      //cache对象的
         'Ap'        => '../App/Config/Ap.php',      //cache对象的
+        'Mmc'       => '../App/Config/Mmc.php',      //cache对象的
 //        'Dbr'    => '../SApp/Config/Dbr.php',         //Mysql对象的
 //        'Cache' => '../SApp/Config/Cache.php',      //cache对象的
     ],
@@ -46,6 +47,7 @@ return [
         'Struct'     => Sham\Struct\Struct::class,
         'Cookies'     => Sham\Cookies\Cookies::class,
         'Ap'     => Sham\Ap\Ap::class,
+        'Mmc'     => Sham\Mmc\Mmc::class,
     ],
 
 
